@@ -1,7 +1,7 @@
 #ifndef _FILE_H
 #define _FILE_H
 
-#include "network.h"
+#include "hyper_network.h"
 #include <string.h>
 #include <stdlib.h>
 

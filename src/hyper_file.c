@@ -1,4 +1,4 @@
-#include "file.h"
+#include "hyper_file.h"
 
 int HyperRecieveFile(SOCKET sockServer, void *lpBuffer, unsigned long long *ullSize)
 {

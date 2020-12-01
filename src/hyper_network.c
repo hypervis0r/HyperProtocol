@@ -1,4 +1,4 @@
-#include "network.h"
+#include "hyper_network.h"
 
 int HyperNetworkInit(void)
 {
