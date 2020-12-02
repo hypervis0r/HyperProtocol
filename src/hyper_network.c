@@ -1,8 +1,9 @@
 #include "hyper_network.h"
 
-int HyperNetworkInit(void)
+HYPERSTATUS 
+HyperNetworkInit(void)
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
 #ifdef _WIN32
     WSADATA wsaData = {};
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -10,9 +11,11 @@ int HyperNetworkInit(void)
     return iResult;
 }
 
-int HyperCloseSocket(SOCKET sock)
+HYPERSTATUS 
+HyperCloseSocket(
+    SOCKET              sock) 
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
 
 #ifdef _WIN32
     iResult = closesocket(sock);
@@ -23,120 +26,165 @@ int HyperCloseSocket(SOCKET sock)
     return iResult;
 }
 
-int HyperSocketCleanup(void)
+HYPERSTATUS 
+HyperSocketCleanup(void)
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
 #ifdef _WIN32
     iResult = WSACleanup();
 #endif
     return iResult;
 }
 
-int HyperSocket(SOCKET *sock)
+HYPERSTATUS 
+HyperSocket(
+    SOCKET              *sock)
 {
-    *sock = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
-    if (*sock == INVALID_SOCKET)
-    {
-        HyperCloseSocket(*sock);
-        HyperSocketCleanup();
+    SOCKET temp = 0;
+
+    // Generate TCP IPv4 socket
+    temp = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
+    if (temp == INVALID_SOCKET)
         return INVALID_SOCKET;
-    }
+
+    // Set Socket
+    *sock = temp;
 
     return HYPER_SUCCESS;
 }
 
-int HyperConnectServer(SOCKET *sock, const char *cpServerIP, unsigned short usPort)
+HYPERSTATUS 
+HyperConnectServer(
+    SOCKET              *sock, 
+    const char          *cpServerIP, 
+    const unsigned short usPort)
 {
     SOCKADDR_IN sin = {};
-    int iResult = 0;
+    SOCKET temp = 0;
+    HYPERSTATUS iResult = 0;
 
-    iResult = HyperSocket(sock);
+    // Generate SOCKET object
+    iResult = HyperSocket(&temp);
     if (iResult == INVALID_SOCKET)
         return INVALID_SOCKET;
 
+    // Set IP and Port to connect to
     sin.sin_family = AF_INET;
 	sin.sin_addr.s_addr = inet_addr(cpServerIP);
 	sin.sin_port = htons(usPort);
 
-    iResult = connect(*sock, (SOCKADDR*)&sin, sizeof(sin));
+    // Connect to server
+    iResult = connect(temp, (SOCKADDR*)&sin, sizeof(sin));
     if (iResult == SOCKET_ERROR)
     {
-        HyperCloseSocket(*sock);
+        HyperCloseSocket(temp);
         HyperSocketCleanup();
         return SOCKET_ERROR;
     }
 
+    // Set socket
+    *sock = temp;
+
     return HYPER_SUCCESS;
 }
 
-int HyperStartServer(SOCKET *sock, unsigned short usPort)
+HYPERSTATUS 
+HyperStartServer(
+    SOCKET              *sock, 
+    const unsigned short usPort)
 {
     SOCKADDR_IN sin = {};
-    int iResult = 0;
+    SOCKET temp = 0;
+    HYPERSTATUS iResult = 0;
 
-    iResult = HyperSocket(sock);
-    if (*sock == INVALID_SOCKET)
+    // Generate Socket Object
+    iResult = HyperSocket(&temp);
+    if (temp == INVALID_SOCKET)
         return INVALID_SOCKET;
-    printf("[+] Aquirred Socket\n");
 
+    // Enable SO_REUSEADDR
+    // If something goes wrong, we won't have bind issues later
     int enable = 1;
-	iResult = setsockopt(*sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable));
+	iResult = setsockopt(temp, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable));
     if (iResult == SOCKET_ERROR)
     {
-        HyperCloseSocket(*sock);
+        HyperCloseSocket(temp);
         HyperSocketCleanup();
         return SOCKET_ERROR;
     }
-    printf("[+] Set SO_REUSEADDR\n");
 
+    // Set Server IP and Port
+    // 0.0.0.0 == Bind to both local and public IPs
     sin.sin_family = AF_INET;
-	sin.sin_addr.s_addr = inet_addr("0.0.0.0"); // 0.0.0.0 == Local and Public IP
+	sin.sin_addr.s_addr = inet_addr("0.0.0.0");
 	sin.sin_port = htons(usPort);
 
-    iResult = bind(*sock, (SOCKADDR*)&sin, sizeof(sin));
+    // Bind to address and port
+    iResult = bind(temp, (SOCKADDR*)&sin, sizeof(sin));
     if (iResult == SOCKET_ERROR)
     {
-        HyperCloseSocket(*sock);
+        HyperCloseSocket(temp);
         HyperSocketCleanup();
         return SOCKET_ERROR;
     }
-    printf("[+] Bound to IP/Port\n");
+
+    // Set parameter output
+    *sock = temp;
 
     return HYPER_SUCCESS;
 }
 
-int HyperServerListen(SOCKET sockServer, SOCKET *sockClient)
+HYPERSTATUS 
+HyperServerListen(
+    const SOCKET        sockServer, 
+    SOCKET              *sockClient)
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
+    SOCKET temp = 0;
 
     iResult = listen(sockServer, 0);
     if (iResult == SOCKET_ERROR)
         return SOCKET_ERROR;
 
-    *sockClient = accept(sockServer, 0, 0);
-    if (*sockClient == INVALID_SOCKET)
+    temp = accept(sockServer, 0, 0);
+    if (temp == INVALID_SOCKET)
         return INVALID_SOCKET;
 
-    return HYPER_SUCCESS;
-}
-
-int HyperRecieveCommand(SOCKET sock, char *cpCommand)
-{
-    int iResult = 0;
-
-    if (!cpCommand)
-        return BAD_PARAMETER;
-
-    iResult = recv(sock, cpCommand, MAX_COMMAND_LENGTH, 0);
-    if (iResult == SOCKET_ERROR)
-        return SOCKET_ERROR;
+    *sockClient = temp;
 
     return HYPER_SUCCESS;
 }
 
-int HyperSendCommand(SOCKET sock, const char *szCommand)
+HYPERSTATUS 
+HyperRecieveCommand(
+    const SOCKET        sock, 
+    char                **cpCommand)
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
+    char *temp = malloc(sizeof(*temp) * MAX_COMMAND_LENGTH);
+
+    if (temp)
+    {
+        // Recieve command
+        iResult = recv(sock, temp, MAX_COMMAND_LENGTH, 0);
+        if (iResult == SOCKET_ERROR)
+            return SOCKET_ERROR;
+
+        // Set parameter output
+        *cpCommand = temp;
+    }
+    else
+        return -1;
+
+    return HYPER_SUCCESS;
+}
+
+HYPERSTATUS 
+HyperSendCommand(
+    const SOCKET        sock, 
+    const char          *szCommand)
+{
+    HYPERSTATUS iResult = 0;
 
     if (!szCommand)
         return BAD_PARAMETER;

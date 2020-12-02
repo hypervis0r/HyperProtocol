@@ -26,14 +26,51 @@
 #include "hyper.h"
 #include <string.h>
 
-int     HyperNetworkInit(void);
-int     HyperCloseSocket(SOCKET sock);
-int     HyperSocketCleanup(void);
-int     HyperSocket(SOCKET *sock);
-int     HyperConnectServer(SOCKET *sock, const char *cpServerIP, unsigned short usPort);
-int     HyperStartServer(SOCKET *sock, unsigned short usPort);
-int     HyperServerListen(SOCKET sockServer, SOCKET *sockClient);
-int     HyperRecieveCommand(SOCKET sock, char *cpCommand);
-int     HyperSendCommand(SOCKET sock, const char *cpCommand);
+HYPERSTATUS
+HyperNetworkInit(void);
+
+HYPERSTATUS
+HyperCloseSocket(
+    SOCKET              sock
+    );
+
+HYPERSTATUS 
+HyperSocketCleanup(void);
+
+HYPERSTATUS
+HyperSocket(
+    SOCKET              *sock
+    );
+
+HYPERSTATUS
+HyperConnectServer(
+    SOCKET              *sock, 
+    const char          *cpServerIP, 
+    const unsigned short usPort
+    );
+
+HYPERSTATUS
+HyperStartServer(
+    SOCKET              *sock, 
+    const unsigned short usPort
+    );
+
+HYPERSTATUS
+HyperServerListen(
+    const SOCKET        sockServer, 
+    SOCKET              *sockClient
+    );
+
+HYPERSTATUS
+HyperRecieveCommand(
+    const SOCKET        sock, 
+    char                **cpCommand
+    );
+
+HYPERSTATUS
+HyperSendCommand(
+    const SOCKET        sock, 
+    const char          *cpCommand
+    );
 
 #endif

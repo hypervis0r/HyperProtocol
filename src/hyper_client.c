@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int iResult = 0;
+    HYPERSTATUS iResult = 0;
     SOCKET sockServer = 0;
         
     iResult = HyperNetworkInit();
