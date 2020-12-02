@@ -11,6 +11,7 @@
     #include <sys/socket.h>
     #include <arpa/inet.h>
     #include <unistd.h>
+    #include <errno.h>
     
     // WinSock2 uses unsigned int for sockets, while POSIX uses int
     typedef int SOCKET;
@@ -22,12 +23,17 @@
     #define SOCKET_ERROR    -1
 #endif
 
+#include "hyper.h"
+#include <string.h>
+
 int     HyperNetworkInit(void);
 int     HyperCloseSocket(SOCKET sock);
 int     HyperSocketCleanup(void);
 int     HyperSocket(SOCKET *sock);
 int     HyperConnectServer(SOCKET *sock, const char *cpServerIP, unsigned short usPort);
 int     HyperStartServer(SOCKET *sock, unsigned short usPort);
-int     HyperServerListen(SOCKET sockServer, SOCKET *sockClient, SOCKADDR_IN *sin);
+int     HyperServerListen(SOCKET sockServer, SOCKET *sockClient);
+int     HyperRecieveCommand(SOCKET sock, char *cpCommand);
+int     HyperSendCommand(SOCKET sock, const char *cpCommand);
 
 #endif
