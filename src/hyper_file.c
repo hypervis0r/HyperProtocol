@@ -10,7 +10,7 @@
    Initial values of (*dataptr) and (*sizeptr) are ignored.
 */
 HYPERSTATUS 
-HyperReadFile(
+HyperReadFileC(
     FILE                *in, 
     void                **dataptr, 
     size_t              *sizeptr)
@@ -80,6 +80,8 @@ HyperRecieveFile(
     void                **lpBuffer, 
     unsigned long       *ulSize)
 {
+    HYPERSTATUS iResult = 0;
+
     unsigned long ulFileSize = 0;
 	unsigned long ulWrittenSize = 0;
 	unsigned long ulBytesWritten = 0;
@@ -95,29 +97,30 @@ HyperRecieveFile(
 	ulFileSize = strtoull(cpSizeBuf, 0, 10);
 
     // Allocate data buffer
-    data = realloc(data, ulFileSize + RECV_BLOCK_SIZE);
-    if (data == NULL) 
-        return -1;
+    iResult = HyperMemAlloc(&data, ulFileSize + RECV_BLOCK_SIZE);
+    if (iResult == HYPER_FAILED)
+        return HYPER_FAILED;
 
 	// Recieve binary data from server, and write to buffer.
 	while (ulWrittenSize < ulFileSize)
 	{
-		ulBytesWritten = recv(sockServer, block, RECV_BLOCK_SIZE, 0);
+        ulBytesWritten = recv(sockServer, block, RECV_BLOCK_SIZE, 0);
 
 		// If we have recieved final bit of data, finish writing and break.
 		if (ulWrittenSize > ulFileSize)
 		{
-			memcpy(data + ulWrittenSize, block, ulBytesWritten);
+			memcpy((void*)((char*)(data) + ulWrittenSize), block, ulBytesWritten);
             break;
 		}
 		else
 		{
-			memcpy(data + ulWrittenSize, block, ulBytesWritten);
+			memcpy((void*)((char*)(data) + ulWrittenSize), block, ulBytesWritten);
 		    ulWrittenSize += ulBytesWritten;
 			memset(block, 0, RECV_BLOCK_SIZE);
 		}
 	}
 
+    // Set input buffer to recieved data.
     *lpBuffer = data;
     
     // Set ullSize to ullFileSize plus the extra bit of data we add to the end.
@@ -127,45 +130,149 @@ HyperRecieveFile(
     return 0;
 }
 
+HYPERSTATUS
+HyperReadFile(
+    const char          *cpFilePath,
+    HYPERFILE           *lpBuffer,
+    size_t              *lpFileSize)
+{
+    HYPERSTATUS iResult = 0;
+    HYPERFILE data = NULL;
+    size_t stBytesRead = 0;
+    
+#ifdef _WIN32
+    HANDLE hFile = 0;
+    LARGE_INTEGER liFileSize = {0};
+    DWORD dwLength = 0;
+
+    hFile = CreateFileA(
+            cpFilePath,     /* lpFileName */ 
+            GENERIC_READ,   /* dwDesiredAccess */
+            0,              /* dwShareMode */
+            0,              /* lpSecurityAttributes */
+            OPEN_EXISTING,  /* dwCreationDisposition */
+            FILE_ATTRIBUTE_READONLY,    /* dwFlagsAndAttributes */
+            0               /* hTemplateFile */
+    );
+    if (hFile == NULL)
+        return HYPER_FAILED;
+
+    /* Get file size */
+    iResult = GetFileSizeEx(hFile, &liFileSize);
+    if (iResult == NULL)
+    {
+        CloseHandle(hFile);
+        return HYPER_FAILED;
+    }
+
+    dwLength = liFileSize.QuadPart;
+
+    /* Allocate Memory */
+    iResult = HyperMemAlloc(&data, dwLength);
+    if (iResult == HYPER_FAILED)
+    {
+        CloseHandle(hFile);
+        return HYPER_FAILED;
+    }
+
+    /* Read file into buffer */
+    iResult = ReadFile(
+            hFile,          /* hFile */
+            data,           /* lpBuffer */
+            dwLength,       /* nNumberOfBytesToRead */
+            &stBytesRead,   /* lpNumberOfBytesRead */
+            0               /* lpOverlapped */
+    );
+    if (iResult == FALSE)
+    {
+        CloseHandle(hFile);
+        HyperMemFree(data);
+        return HYPER_FAILED;
+    }
+    
+    CloseHandle(hFile);
+#else
+    struct stat st = {0};
+    int filesize = 0;
+    int fd = 0;
+
+    /* Get File Size */
+    iResult = stat(cpFilePath, &st);
+    if (iResult == -1)
+        return HYPER_FAILED;
+
+    filesize = st.st_size;
+
+    /* Open File Descriptor */
+    fd = open(cpFilePath, O_RDONLY);
+    if (fd == -1)
+        return HYPER_FAILED;
+
+    /* Allocate buffer */
+    iResult = HyperMemAlloc(&data, filesize);
+    if (iResult == HYPER_FAILED)
+        return HYPER_FAILED;
+
+    /* Read file into buffer */
+    stBytesRead = read(fd, data, filesize);
+    if ((int)stBytesRead == -1)
+    {
+        close(fd);
+        HyperMemFree(data);
+        return HYPER_FAILED;
+    }
+
+    close(fd);
+#endif
+    
+    /* Set HYPERFILE and size_t parameter */
+    *lpBuffer = data;
+    *lpFileSize = stBytesRead;
+
+    return HYPER_SUCCESS;
+}
+
 HYPERSTATUS 
 HyperSendFile(
     const SOCKET        sockServer, 
-    const void          *lpBuffer, 
+    HYPERFILE           *lpBuffer, 
     const unsigned long ulSize)
 {
+    HYPERSTATUS iResult = 0;
     unsigned long ulSentSize = 0;
     unsigned long ulBytesSent = 0;
     
     char block[SEND_BLOCK_SIZE];
-    char cpSizeBuffer[1024];
+    char fileSizeBuffer[FILESIZE_BUFFER_SIZE];
     memset(block, 0, SEND_BLOCK_SIZE);
-    memset(cpSizeBuffer, 0, sizeof(cpSizeBuffer));
+    memset(fileSizeBuffer, 0, FILESIZE_BUFFER_SIZE);
 
     // Add extra block due to memcpy scaring me
-    lpBuffer = realloc(lpBuffer, ulSize + SEND_BLOCK_SIZE);
+    iResult = HyperMemRealloc(lpBuffer, ulSize + SEND_BLOCK_SIZE);
+    if (iResult == HYPER_FAILED)
+        return HYPER_FAILED;
 
     // Send File Size to Peer
-    snprintf(cpSizeBuffer, sizeof(cpSizeBuffer), "%lu", ulSize);
-    ulBytesSent = send(sockServer, cpSizeBuffer, sizeof(cpSizeBuffer), 0);
-    if (ulBytesSent == SOCKET_ERROR)
+    snprintf(fileSizeBuffer, FILESIZE_BUFFER_SIZE, "%lu", ulSize);
+    ulBytesSent = send(sockServer, fileSizeBuffer, FILESIZE_BUFFER_SIZE, 0);
+    if ((int)ulBytesSent == SOCKET_ERROR)
         return SOCKET_ERROR;
    
     // Begin Sending file
     while(ulSentSize < ulSize)
     {
         // Copy data from buffer into block
-        memcpy(block, lpBuffer + ulSentSize, SEND_BLOCK_SIZE);
+        memcpy(block, (void*)((char*)(*lpBuffer)+ulSentSize), SEND_BLOCK_SIZE);
         
         ulBytesSent = send(sockServer, block, SEND_BLOCK_SIZE, 0);
-        if (ulBytesSent == SOCKET_ERROR)
+        if ((int)ulBytesSent == SOCKET_ERROR)
             return SOCKET_ERROR;
         else
         {
             ulSentSize += ulBytesSent;
-            // Clear block
             memset(block, 0, SEND_BLOCK_SIZE);
         }
     }
-
-    return 0;
+    
+    return HYPER_SUCCESS;
 }

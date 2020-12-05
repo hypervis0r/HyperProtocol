@@ -59,7 +59,7 @@ HyperConnectServer(
     const char          *cpServerIP, 
     const unsigned short usPort)
 {
-    SOCKADDR_IN sin = {};
+    SOCKADDR_IN sin = {0};
     SOCKET temp = 0;
     HYPERSTATUS iResult = 0;
 
@@ -93,7 +93,7 @@ HyperStartServer(
     SOCKET              *sock, 
     const unsigned short usPort)
 {
-    SOCKADDR_IN sin = {};
+    SOCKADDR_IN sin = {0};
     SOCKET temp = 0;
     HYPERSTATUS iResult = 0;
 
@@ -161,9 +161,10 @@ HyperRecieveCommand(
     char                **cpCommand)
 {
     HYPERSTATUS iResult = 0;
-    char *temp = malloc(sizeof(*temp) * MAX_COMMAND_LENGTH);
+    char *temp = NULL;
+    iResult = HyperMemAlloc((void**)&temp, sizeof(*temp) * MAX_COMMAND_LENGTH);
 
-    if (temp)
+    if (iResult == HYPER_SUCCESS)
     {
         // Recieve command
         iResult = recv(sock, temp, MAX_COMMAND_LENGTH, 0);
@@ -174,7 +175,7 @@ HyperRecieveCommand(
         *cpCommand = temp;
     }
     else
-        return -1;
+        return HYPER_FAILED;
 
     return HYPER_SUCCESS;
 }
@@ -187,7 +188,7 @@ HyperSendCommand(
     HYPERSTATUS iResult = 0;
 
     if (!szCommand)
-        return BAD_PARAMETER;
+        return HYPER_BAD_PARAMETER;
 
     iResult = send(sock, szCommand, strlen(szCommand), 0);
     if (iResult == SOCKET_ERROR)

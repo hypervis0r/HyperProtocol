@@ -1,50 +1,77 @@
 #include "hyper.h"
 #include <stdio.h>
 
-int main(void)
+void usage(void)
+{
+    puts( 
+        
+        "    __  __                       \n"                     
+        "   / / / /_  ______  ___  _____  \n"
+        "  / /_/ / / / / __ \\/ _ \\/ ___/\n"
+        " / __  / /_/ / /_/ /  __/ /      \n"
+        "/_/ /_/\\__  / ____/\\___/_/     \n"
+        "      /____/_/                   \n"
+    );
+    puts("Usage: hyper <IP ADDRESS> <PORT>");
+}
+
+int main(int argc, char **argv)
 {
     HYPERSTATUS iResult = 0;
     SOCKET sockServer = 0;
-        
+    char *cpServerIP = NULL;
+    unsigned short usPort = 0;
+
+    if (argc < 3)
+    {
+        usage();
+        return HYPER_FAILED;
+    }
+    else
+    {
+        cpServerIP = argv[1];
+        usPort = (unsigned short)strtoul(argv[2], NULL, 0);
+    }
+       
     iResult = HyperNetworkInit();
     if (iResult != HYPER_SUCCESS)
     {
-        printf("[-] HyperNetworkInit failed\n");
-        return -1;
+        puts("[-] HyperNetworkInit failed");
+        return HYPER_FAILED;
     }
     else
-        printf("[+] Hyper NetAPI Initialized\n");
+        puts("[+] Hyper NetAPI Initialized");
 
-    iResult = HyperConnectServer(&sockServer, "127.0.0.1", 2090);
+    iResult = HyperConnectServer(&sockServer, cpServerIP, usPort);
     if (iResult != HYPER_SUCCESS)
     {
-        printf("[-] HyperConnectServer failed\n");
-        return -1;
+        puts("[-] HyperConnectServer failed");
+        return HYPER_FAILED;
     }
     else
-        printf("[+] Connected to server\n");
+        puts("[+] Connected to server");
 
     iResult = HyperSendCommand(sockServer, "SEND");
     if (iResult != HYPER_SUCCESS)
     {
-        printf("[-] HyperSendCommand failed\n");
-        return -1;
+        puts("[-] HyperSendCommand failed");
+        return HYPER_FAILED;
     }
     else
-        printf("[+] Command sent\n");
+        puts("[+] Command sent");
 
-    void *lpBuffer = NULL;
+    HYPERFILE lpBuffer = NULL;
     unsigned long ulTotalSize = 0;
-    printf("[+] Recieving file...");
+    puts("[+] Recieving file...");
     iResult = HyperRecieveFile(sockServer, &lpBuffer, &ulTotalSize);
     if (iResult != HYPER_SUCCESS)
     {
-        printf("[-] HyperRecieveFile failed\n");
+        puts("[-] HyperRecieveFile failed");
         free(lpBuffer);
-        return -1;
+        return HYPER_FAILED;
     }
     else
-        printf("[+] File recieved\n");
+        puts("[+] File recieved");
 
     FILE *pFile = fopen("testresult.png", "wb");
     if (pFile)
@@ -54,7 +81,7 @@ int main(void)
     }
     free(lpBuffer);
 
-    printf("[+] File written\n");
+    puts("[+] File written");
 
     HyperCloseSocket(sockServer);
     HyperSocketCleanup();

@@ -1,11 +1,6 @@
 #ifndef _FILE_H
 #define _FILE_H
 
-#include "hyper_network.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-
 /* Size of each input chunk to be
    read and allocate for. */
 #ifndef  READALL_CHUNK
@@ -17,28 +12,59 @@
 #define  READALL_TOOMUCH   -3  /* Too much input */
 #define  READALL_NOMEM     -4  /* Out of memory */
 
+/* Set block sizes. 4096 is a nice number lol */
 #define  SEND_BLOCK_SIZE    4096
 #define  RECV_BLOCK_SIZE    4096
 
+#define  FILESIZE_BUFFER_SIZE   1024
+
+/* Typedefs */
+typedef void*   HYPERFILE;
+
+/* Platform Specifics */
+#ifdef _WIN32
+    #define WIN32_LEAN_AND_MEAN
+    #include <windows.h>
+#else
+    #include <sys/stat.h>
+    #include <fcntl.h>
+    #include <unistd.h>
+#endif
+
+/* Includes */
+#include "hyper_network.h"
+
+/* Libc Includes */
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 HYPERSTATUS 
-HyperReadFile(
+HyperReadFileC(
     FILE                *in, 
-    void                **dataptr, 
+    HYPERFILE           *dataptr, 
     size_t              *sizeptr
-    );
+);
+
+HYPERSTATUS
+HyperReadFile(
+    const char          *cpFilePath,
+    HYPERFILE           *lpBuffer,
+    size_t              *lpFileSize
+);
 
 HYPERSTATUS 
 HyperRecieveFile(
     const SOCKET        sockServer, 
-    void                **lpBuffer, 
+    HYPERFILE           *lpBuffer, 
     unsigned long       *ulSize
-    );
+);
 
 HYPERSTATUS 
 HyperSendFile(
     const SOCKET        sockServer, 
-    const void          *lpBuffer, 
+    HYPERFILE           *lpBuffer, 
     const unsigned long ulSize
-    );
+);
 
 #endif

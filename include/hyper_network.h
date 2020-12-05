@@ -15,6 +15,7 @@
     
     // WinSock2 uses unsigned int for sockets, while POSIX uses int
     typedef int SOCKET;
+
     typedef struct sockaddr_in SOCKADDR_IN;
     typedef struct sockaddr SOCKADDR;
     typedef socklen_t SOCKLEN;

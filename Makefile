@@ -2,20 +2,20 @@ INCLUDEDIR :=
 INCLUDEDIR += -Iinclude/
 
 CC := gcc
-CFLAGS := $(INCLUDEDIR) -Wall
+CFLAGS := $(INCLUDEDIR) -pedantic -Wall -Wextra -Werror -Wno-misleading-indentation
 
-OBJECTS := hyper_network.o hyper_file.o 
+OBJECTS := hyper_network.o hyper_file.o hyper.o 
 
 SERVEROBJS := hyper_server.o
 CLIENTOBJS := hyper_client.o
 
-all: clean libhyper.a hyper-server hyper-client
+all: clean libhyper.a hyper-server hyper
 	@echo "Done!"
 
 hyper-server: $(SERVEROBJS) libhyper.a
 	$(CC) -g $< -o $@ -L. -lhyper
 
-hyper-client: $(CLIENTOBJS) libhyper.a
+hyper: $(CLIENTOBJS) libhyper.a
 	$(CC) $< -o $@ -L. -lhyper 
 
 libhyper.a: $(OBJECTS)
@@ -25,4 +25,4 @@ libhyper.a: $(OBJECTS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf *.o *.a hyper-server hyper-client
+	rm -rf *.o *.a hyper-server hyper
