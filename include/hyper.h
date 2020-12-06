@@ -8,8 +8,8 @@
 
 typedef int     HYPERSTATUS;
 
-#include "hyper_network.h"
-#include "hyper_file.h"
+#include <hyper/hyper_network.h>
+#include <hyper/hyper_file.h>
 
 HYPERSTATUS
 HyperMemAlloc(

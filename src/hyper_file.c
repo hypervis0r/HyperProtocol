@@ -232,6 +232,84 @@ HyperReadFile(
     return HYPER_SUCCESS;
 }
 
+HYPERSTATUS
+HyperWriteFileC(
+    FILE                *pFile,
+    const HYPERFILE     hfBuffer,
+    const size_t        stFileSize
+)
+{
+    HYPERSTATUS hsResult = 0;
+    
+    if (pFile)
+    {
+        hsResult = fwrite(hfBuffer, stFileSize, 1, pFile);
+        if (hsResult < 1)
+            return HYPER_FAILED;
+    }
+
+    return HYPER_SUCCESS;
+}
+
+HYPERSTATUS
+HyperWriteFile(
+    const char          *cpFilePath,
+    const HYPERFILE     hfBuffer,
+    const size_t        stFileSize
+)
+{
+    HYPERSTATUS hsResult = 0;
+
+#ifdef _WIN32
+    HANDLE hFile = NULL;
+    DWORD dwBytesWritten = 0;
+
+    hFile = CreateFileA(
+            cpFilePath,     /* lpFileName */ 
+            GENERIC_READ,   /* dwDesiredAccess */
+            0,              /* dwShareMode */
+            0,              /* lpSecurityAttributes */
+            CREATE_ALWAYS,  /* dwCreationDisposition */
+            FILE_ATTRIBUTE_NORMAL,    /* dwFlagsAndAttributes */
+            0               /* hTemplateFile */
+    );
+    if (hFile == NULL)
+        return HYPER_FAILED;
+
+    hsResult = WriteFile(
+            hFile,          /* hFile */
+            hfBuffer,       /* lpBuffer */
+            stFileSize,     /* nNumberOfBytesToWrite */
+            &dwBytesWritten,    /* lpNumberOfBytesWritten */
+            NULL            /* lpOverlapped */
+    );
+    if (hsResult == NULL)
+    {
+        CloseHandle(hFile);
+        return HYPER_FAILED;
+    }
+
+    CloseHandle(hFile);
+#else
+    int fd = 0;
+    
+    fd = open(cpFilePath, O_CREAT | O_WRONLY, S_IRWXU);
+    if (fd == -1)
+        return HYPER_FAILED;
+
+    hsResult = write(fd, hfBuffer, stFileSize);
+    if (hsResult == -1)
+    {
+        close(fd);
+        return HYPER_FAILED;
+    }
+
+    close(fd);
+#endif
+
+    return HYPER_SUCCESS;
+}
+
 HYPERSTATUS 
 HyperSendFile(
     const SOCKET        sockServer, 

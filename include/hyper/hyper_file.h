@@ -32,7 +32,8 @@ typedef void*   HYPERFILE;
 #endif
 
 /* Includes */
-#include "hyper_network.h"
+#include <hyper.h>
+#include <hyper/hyper_network.h>
 
 /* Libc Includes */
 #include <string.h>
@@ -51,6 +52,20 @@ HyperReadFile(
     const char          *cpFilePath,
     HYPERFILE           *lpBuffer,
     size_t              *lpFileSize
+);
+
+HYPERSTATUS
+HyperWriteFileC(
+    FILE                *pFile,
+    const HYPERFILE     hfBuffer,
+    const size_t        stFileSize
+);
+
+HYPERSTATUS
+HyperWriteFile(
+    const char          *cpFilePath,
+    const HYPERFILE     hfBuffer,
+    const size_t        stFileSize
 );
 
 HYPERSTATUS 

@@ -24,7 +24,7 @@
     #define SOCKET_ERROR    -1
 #endif
 
-#include "hyper.h"
+#include <hyper.h>
 #include <string.h>
 
 HYPERSTATUS
