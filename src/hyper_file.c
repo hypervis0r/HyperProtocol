@@ -1,4 +1,4 @@
-#include "hyper_file.h"
+#include <hyper/hyper_file.h>
 
 /* Lol I stole all of the readall code from SO */
 /* This function returns one of the READALL_ constants above.

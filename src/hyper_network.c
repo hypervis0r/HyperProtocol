@@ -1,4 +1,4 @@
-#include "hyper_network.h"
+#include <hyper/hyper_network.h>
 
 HYPERSTATUS 
 HyperNetworkInit(void)
@@ -158,24 +158,16 @@ HyperServerListen(
 HYPERSTATUS 
 HyperRecieveCommand(
     const SOCKET        sock, 
-    char                **cpCommand)
+    char                **cpCommand,
+    size_t              stMaxCommandLength
+)
 {
     HYPERSTATUS iResult = 0;
-    char *temp = NULL;
-    iResult = HyperMemAlloc((void**)&temp, sizeof(*temp) * MAX_COMMAND_LENGTH);
 
-    if (iResult == HYPER_SUCCESS)
-    {
-        // Recieve command
-        iResult = recv(sock, temp, MAX_COMMAND_LENGTH, 0);
-        if (iResult == SOCKET_ERROR)
-            return SOCKET_ERROR;
-
-        // Set parameter output
-        *cpCommand = temp;
-    }
-    else
-        return HYPER_FAILED;
+    // Recieve command
+    iResult = recv(sock, *cpCommand, stMaxCommandLength, 0);
+    if (iResult == SOCKET_ERROR)
+        return SOCKET_ERROR;
 
     return HYPER_SUCCESS;
 }
