@@ -65,7 +65,7 @@ HyperServerListen(
 HYPERSTATUS
 HyperRecieveCommand(
     const SOCKET        sock, 
-    char                **cpCommand,
+    char                *cpCommand,
     size_t              stMaxCommandLength
 );
 

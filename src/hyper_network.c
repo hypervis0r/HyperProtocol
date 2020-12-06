@@ -158,14 +158,14 @@ HyperServerListen(
 HYPERSTATUS 
 HyperRecieveCommand(
     const SOCKET        sock, 
-    char                **cpCommand,
+    char                *cpCommand,
     size_t              stMaxCommandLength
 )
 {
     HYPERSTATUS iResult = 0;
 
     // Recieve command
-    iResult = recv(sock, *cpCommand, stMaxCommandLength, 0);
+    iResult = recv(sock, cpCommand, stMaxCommandLength, 0);
     if (iResult == SOCKET_ERROR)
         return SOCKET_ERROR;
 
