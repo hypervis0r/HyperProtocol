@@ -75,7 +75,7 @@ HyperReadFileC(
 }
 
 HYPERSTATUS 
-HyperRecieveFile(
+HyperReceiveFile(
     const SOCKET        sockServer, 
     void                **lpBuffer, 
     unsigned long       *ulSize)
