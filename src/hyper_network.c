@@ -156,7 +156,7 @@ HyperServerListen(
 }
 
 HYPERSTATUS 
-HyperRecieveCommand(
+HyperReceiveCommand(
     const SOCKET        sock, 
     char                *cpCommand,
     size_t              stMaxCommandLength
@@ -211,7 +211,7 @@ HyperSendStatus(
 }
 
 HYPERSTATUS
-HyperRecieveStatus(
+HyperReceiveStatus(
     const SOCKET        sock,
     unsigned short      *status)
 {
