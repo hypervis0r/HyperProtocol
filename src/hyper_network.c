@@ -166,8 +166,8 @@ HyperRecieveCommand(
 
     // Recieve command
     iResult = recv(sock, cpCommand, stMaxCommandLength, 0);
-    if (iResult == SOCKET_ERROR)
-        return SOCKET_ERROR;
+    if (iResult == SOCKET_ERROR || iResult == CONNECTION_CLOSED)
+        return HYPER_FAILED;
 
     return HYPER_SUCCESS;
 }
@@ -183,8 +183,53 @@ HyperSendCommand(
         return HYPER_BAD_PARAMETER;
 
     iResult = send(sock, szCommand, strlen(szCommand), 0);
-    if (iResult == SOCKET_ERROR)
+    if (iResult == SOCKET_ERROR || iResult == CONNECTION_CLOSED)
         return SOCKET_ERROR;
+
+    return HYPER_SUCCESS;
+}
+
+HYPERSTATUS
+HyperSendStatus(
+    const SOCKET         sock,
+    const unsigned short status)
+{
+    HYPERSTATUS hsResult = 0;
+    char buffer[255];
+    memset(buffer, 0, sizeof(buffer));
+
+    if (!sock)
+        return HYPER_BAD_PARAMETER;
+
+    snprintf(buffer, sizeof(buffer), "%u", status);
+    
+    hsResult = send(sock, buffer, sizeof(buffer), 0);
+    if (hsResult == SOCKET_ERROR || hsResult == CONNECTION_CLOSED)
+        return HYPER_FAILED;
+
+    return HYPER_SUCCESS;
+}
+
+HYPERSTATUS
+HyperRecieveStatus(
+    const SOCKET        sock,
+    unsigned short      *status)
+{
+    HYPERSTATUS hsResult = 0;
+    unsigned short temp = 0;
+    char buffer[255];
+    memset(buffer, 0, sizeof(buffer));
+
+    if (!sock || !status)
+        return HYPER_BAD_PARAMETER;
+
+    hsResult = recv(sock, buffer, sizeof(buffer), 0);
+    if (hsResult == SOCKET_ERROR || hsResult == CONNECTION_CLOSED)
+        return HYPER_FAILED;
+
+    temp = (unsigned short)strtoul(buffer, NULL, 10);
+
+    *status = temp;
 
     return HYPER_SUCCESS;
 }
