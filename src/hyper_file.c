@@ -293,7 +293,7 @@ HyperWriteFile(
 #else
     int fd = 0;
     
-    fd = open(cpFilePath, O_CREAT | O_WRONLY, S_IRWXU);
+    fd = open(cpFilePath, O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
     if (fd == -1)
         return HYPER_FAILED;
 
