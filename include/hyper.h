@@ -1,11 +1,16 @@
 /** \file hyper.h
- * \brief Common functions and variables
+ * \brief Main library header with common functions and variables
+ *
+ * The hyper.h header includes common functions and variables, such
+ * as memory management functions and status codes. It also serves as 
+ * a main header file for including the rest of the HyperProtocol library.
  */
 
 #ifndef _HYPER_H
 #define _HYPER_H
 
 #define MAX_COMMAND_LENGTH      1024
+
 #define HYPER_SUCCESS           0
 #define HYPER_FAILED           -1
 #define HYPER_BAD_PARAMETER    -2

@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-include/hyper/hyper_file.h
+include/hyper/hyper_file.h \- Contains all file I/O functions\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -65,81 +66,165 @@ include/hyper/hyper_file.h
 
 .in +1c
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperReadFileC\fP (FILE *in, \fBHYPERFILE\fP *dataptr, size_t *sizeptr)"
+.RI "HYPERSTATUS \fBHyperReadFileC\fP (FILE *in, HYPERFILE *dataptr, size_t *sizeptr)"
 .br
+.RI "Read file into HYPERFILE buffer using standard C\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperReadFile\fP (const char *cpFilePath, \fBHYPERFILE\fP *lpBuffer, size_t *lpFileSize)"
+.RI "HYPERSTATUS \fBHyperReadFile\fP (const char *cpFilePath, HYPERFILE *lpBuffer, size_t *lpFileSize)"
 .br
+.RI "Read file into HYPERFILE buffer using platform-specifics\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperWriteFileC\fP (FILE *pFile, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.RI "HYPERSTATUS \fBHyperWriteFileC\fP (FILE *pFile, const HYPERFILE hfBuffer, const size_t stFileSize)"
 .br
+.RI "Write file from HYPERFILE buffer to disk using standard C\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperWriteFile\fP (const char *cpFilePath, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.RI "HYPERSTATUS \fBHyperWriteFile\fP (const char *cpFilePath, const HYPERFILE hfBuffer, const size_t stFileSize)"
 .br
+.RI "Write file from HYPERFILE buffer to disk using platform-specifics\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperReceiveFile\fP (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP *lpBuffer, unsigned long *ulSize)"
+.RI "HYPERSTATUS \fBHyperReceiveFile\fP (const SOCKET sockServer, HYPERFILE *lpBuffer, unsigned long *ulSize)"
 .br
+.RI "Receive file from network into HYPERFILE buffer\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperSendFile\fP (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP *lpBuffer, const unsigned long ulSize)"
+.RI "HYPERSTATUS \fBHyperSendFile\fP (const SOCKET sockServer, HYPERFILE *lpBuffer, const unsigned long ulSize)"
 .br
+.RI "Send file from HYPERFILE buffer over network\&. "
 .in -1c
-.SH "Macro Definition Documentation"
+.SH "Detailed Description"
 .PP 
-.SS "#define FILESIZE_BUFFER_SIZE   1024"
+Contains all file I/O functions\&. 
+
 
 .PP
-Definition at line 19 of file hyper_file\&.h\&.
-.SS "#define READALL_CHUNK   262144"
-
-.PP
-Definition at line 7 of file hyper_file\&.h\&.
-.SS "#define READALL_ERROR   \-2  /* Stream error */"
-
-.PP
-Definition at line 11 of file hyper_file\&.h\&.
-.SS "#define READALL_INVALID   \-1  /* Invalid parameters */"
-
-.PP
-Definition at line 10 of file hyper_file\&.h\&.
-.SS "#define READALL_NOMEM   \-4  /* Out of memory */"
-
-.PP
-Definition at line 13 of file hyper_file\&.h\&.
-.SS "#define READALL_OK   0  /* Success */"
-
-.PP
-Definition at line 9 of file hyper_file\&.h\&.
-.SS "#define READALL_TOOMUCH   \-3  /* Too much input */"
-
-.PP
-Definition at line 12 of file hyper_file\&.h\&.
-.SS "#define RECV_BLOCK_SIZE   4096"
-
-.PP
-Definition at line 17 of file hyper_file\&.h\&.
-.SS "#define SEND_BLOCK_SIZE   4096"
-
-.PP
-Definition at line 16 of file hyper_file\&.h\&.
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef void* \fBHYPERFILE\fP"
-
-.PP
-Definition at line 22 of file hyper_file\&.h\&.
+Definition in file \fBhyper_file\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
-.SS "\fBHYPERSTATUS\fP HyperReadFile (const char * cpFilePath, \fBHYPERFILE\fP * lpBuffer, size_t * lpFileSize)"
+.SS "HYPERSTATUS HyperReadFile (const char * cpFilePath, HYPERFILE * lpBuffer, size_t * lpFileSize)"
 
-.SS "\fBHYPERSTATUS\fP HyperReadFileC (FILE * in, \fBHYPERFILE\fP * dataptr, size_t * sizeptr)"
+.PP
+Read file into HYPERFILE buffer using platform-specifics\&. Reads a file from a file path into a HYPERFILE buffer\&. Uses platform-specific file I/O functions for faster speed\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcpFilePath\fP char pointer to file path on disk 
+.br
+\fIlpBuffer\fP Pointer to a NULL HYPERFILE buffer that holds the file 
+.br
+\fIlpFileSize\fP Pointer to a size_t that holds the file size
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperReceiveFile (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP * lpBuffer, unsigned long * ulSize)"
+.SS "HYPERSTATUS HyperReadFileC (FILE * in, HYPERFILE * dataptr, size_t * sizeptr)"
 
-.SS "\fBHYPERSTATUS\fP HyperSendFile (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP * lpBuffer, const unsigned long ulSize)"
+.PP
+Read file into HYPERFILE buffer using standard C\&. Reads a file from a FILE pointer into a HYPERFILE buffer\&. Uses Standard C for platform-agnostic file I/O\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIin\fP FILE pointer to an open file 
+.br
+\fIdataptr\fP Pointer to a NULL HYPERFILE buffer that holds the file 
+.br
+\fIsizeptr\fP Pointer to a size_t that holds the file size
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperWriteFile (const char * cpFilePath, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.SS "HYPERSTATUS HyperReceiveFile (const SOCKET sockServer, HYPERFILE * lpBuffer, unsigned long * ulSize)"
 
-.SS "\fBHYPERSTATUS\fP HyperWriteFileC (FILE * pFile, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.PP
+Receive file from network into HYPERFILE buffer\&. Recieves a file from a connected socket, and writes it into a HYPERFILE buffer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsockServer\fP Open, connected socket to receive from 
+.br
+\fIlpBuffer\fP HYPERFILE buffer to write data to 
+.br
+\fIstFileSize\fP size_t to write file size to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperSendFile (const SOCKET sockServer, HYPERFILE * lpBuffer, const unsigned long ulSize)"
+
+.PP
+Send file from HYPERFILE buffer over network\&. Sends a file stored in a HYPERFILE buffer over the network to a connected socket\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsockServer\fP Open, connected socket to send to 
+.br
+\fI[in/out]\fP lpBuffer HYPERFILE buffer to write data to 
+.br
+\fIstFileSize\fP size_t to write file size to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+lpBuffer is reallocated to (ulSize + SEND_BLOCK_SIZE) 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperWriteFile (const char * cpFilePath, const HYPERFILE hfBuffer, const size_t stFileSize)"
+
+.PP
+Write file from HYPERFILE buffer to disk using platform-specifics\&. Writes a file from a HYPERFILE buffer to disk\&. Uses platform-specific file I/O for faster speeds\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcpFilePath\fP File path to write file to 
+.br
+ 
+.br
+\fIhfBuffer\fP HYPERFILE buffer thats holding file data 
+.br
+\fIstFileSize\fP size_t that holds the file size
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperWriteFileC (FILE * pFile, const HYPERFILE hfBuffer, const size_t stFileSize)"
+
+.PP
+Write file from HYPERFILE buffer to disk using standard C\&. Writes a file from a HYPERFILE buffer to disk\&. Uses Standard C for platform-agnostic file I/O\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI[in/out]\fP in FILE pointer to an open file 
+.br
+\fIhfBuffer\fP HYPERFILE buffer thats holding file data 
+.br
+\fIstFileSize\fP size_t that holds the file size
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+.RE
+.PP
 
 .SH "Author"
 .PP 

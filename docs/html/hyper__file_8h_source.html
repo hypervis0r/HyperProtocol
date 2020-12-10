@@ -85,98 +85,105 @@ $(document).ready(function(){initNavTree('hyper__file_8h_source.html',''); initR
 <div class="title">hyper_file.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _FILE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _FILE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/* Size of each input chunk to be</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">   read and allocate for. */</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef  READALL_CHUNK</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define  READALL_CHUNK      262144</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define  READALL_OK         0  </span><span class="comment">/* Success */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define  READALL_INVALID   -1  </span><span class="comment">/* Invalid parameters */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define  READALL_ERROR     -2  </span><span class="comment">/* Stream error */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define  READALL_TOOMUCH   -3  </span><span class="comment">/* Too much input */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define  READALL_NOMEM     -4  </span><span class="comment">/* Out of memory */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/* Set block sizes. 4096 is a nice number lol */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define  SEND_BLOCK_SIZE    4096</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define  RECV_BLOCK_SIZE    4096</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define  FILESIZE_BUFFER_SIZE   1024</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/* Typedefs */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>*   HYPERFILE;</div>
+<a href="hyper__file_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef _FILE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define _FILE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/* Size of each input chunk to be</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">   read and allocate for. */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef  READALL_CHUNK</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define  READALL_CHUNK      262144</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define  READALL_OK         0  </span><span class="comment">/* Success */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define  READALL_INVALID   -1  </span><span class="comment">/* Invalid parameters */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define  READALL_ERROR     -2  </span><span class="comment">/* Stream error */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define  READALL_TOOMUCH   -3  </span><span class="comment">/* Too much input */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define  READALL_NOMEM     -4  </span><span class="comment">/* Out of memory */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* Set block sizes. 4096 is a nice number lol */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define  SEND_BLOCK_SIZE    4096</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define  RECV_BLOCK_SIZE    4096</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* Platform Specifics */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">    #define WIN32_LEAN_AND_MEAN</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    #include &lt;windows.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">    #include &lt;sys/stat.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">    #include &lt;fcntl.h&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    #include &lt;unistd.h&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/* Includes */</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="hyper_8h.html">hyper.h</a>&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;hyper/hyper_network.h&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/* Libc Includes */</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define  FILESIZE_BUFFER_SIZE   1024</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* Typedefs */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>*   HYPERFILE;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/* Platform Specifics */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    #define WIN32_LEAN_AND_MEAN</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #include &lt;windows.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">    #include &lt;sys/stat.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">    #include &lt;fcntl.h&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    #include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/* Includes */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="hyper_8h.html">hyper.h</a>&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;hyper/hyper_network.h&gt;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;HYPERSTATUS </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;HyperReadFileC(</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    FILE                *in, </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    HYPERFILE           *dataptr, </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">size_t</span>              *sizeptr</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;HYPERSTATUS</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;HyperReadFile(</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>          *cpFilePath,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    HYPERFILE           *lpBuffer,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">size_t</span>              *lpFileSize</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;HYPERSTATUS</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;HyperWriteFileC(</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    FILE                *pFile,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> HYPERFILE     hfBuffer,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span>        stFileSize</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;HYPERSTATUS</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;HyperWriteFile(</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>          *cpFilePath,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">const</span> HYPERFILE     hfBuffer,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span>        stFileSize</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;HYPERSTATUS </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;HyperReceiveFile(</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> SOCKET        sockServer, </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    HYPERFILE           *lpBuffer, </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>       *ulSize</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;HYPERSTATUS </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;HyperSendFile(</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> SOCKET        sockServer, </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    HYPERFILE           *lpBuffer, </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> ulSize</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/* Libc Includes */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;HYPERSTATUS </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23">HyperReadFileC</a>(</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    FILE                *in, </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    HYPERFILE           *dataptr, </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">size_t</span>              *sizeptr</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;HYPERSTATUS</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<a class="code" href="hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345">HyperReadFile</a>(</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>          *cpFilePath,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    HYPERFILE           *lpBuffer,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">size_t</span>              *lpFileSize</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;HYPERSTATUS</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<a class="code" href="hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd">HyperWriteFileC</a>(</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    FILE                *pFile,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">const</span> HYPERFILE     hfBuffer,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span>        stFileSize</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;HYPERSTATUS</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<a class="code" href="hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3">HyperWriteFile</a>(</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>          *cpFilePath,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">const</span> HYPERFILE     hfBuffer,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span>        stFileSize</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;HYPERSTATUS </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<a class="code" href="hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b">HyperReceiveFile</a>(</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">const</span> SOCKET        sockServer, </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    HYPERFILE           *lpBuffer, </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>       *ulSize</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;HYPERSTATUS </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<a class="code" href="hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226">HyperSendFile</a>(</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">const</span> SOCKET        sockServer, </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    HYPERFILE           *lpBuffer, </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> ulSize</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ahyper_8h_html"><div class="ttname"><a href="hyper_8h.html">hyper.h</a></div><div class="ttdoc">Common functions and variables.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_a885b772f84e47a106ca7a41fea41c226"><div class="ttname"><a href="hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226">HyperSendFile</a></div><div class="ttdeci">HYPERSTATUS HyperSendFile(const SOCKET sockServer, HYPERFILE *lpBuffer, const unsigned long ulSize)</div><div class="ttdoc">Send file from HYPERFILE buffer over network.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_a1ad252cf5a4ab2c7597e8a912f351345"><div class="ttname"><a href="hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345">HyperReadFile</a></div><div class="ttdeci">HYPERSTATUS HyperReadFile(const char *cpFilePath, HYPERFILE *lpBuffer, size_t *lpFileSize)</div><div class="ttdoc">Read file into HYPERFILE buffer using platform-specifics.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_aa80d1b091e6fa759e84cb228eeb32afd"><div class="ttname"><a href="hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd">HyperWriteFileC</a></div><div class="ttdeci">HYPERSTATUS HyperWriteFileC(FILE *pFile, const HYPERFILE hfBuffer, const size_t stFileSize)</div><div class="ttdoc">Write file from HYPERFILE buffer to disk using standard C.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_af1f12403807241a9c82e22c3ac8cfcd3"><div class="ttname"><a href="hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3">HyperWriteFile</a></div><div class="ttdeci">HYPERSTATUS HyperWriteFile(const char *cpFilePath, const HYPERFILE hfBuffer, const size_t stFileSize)</div><div class="ttdoc">Write file from HYPERFILE buffer to disk using platform-specifics.</div></div>
+<div class="ttc" id="ahyper_8h_html"><div class="ttname"><a href="hyper_8h.html">hyper.h</a></div><div class="ttdoc">Main library header with common functions and variables.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_a2fcf69afd9c81616aaac48a84891d37b"><div class="ttname"><a href="hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b">HyperReceiveFile</a></div><div class="ttdeci">HYPERSTATUS HyperReceiveFile(const SOCKET sockServer, HYPERFILE *lpBuffer, unsigned long *ulSize)</div><div class="ttdoc">Receive file from network into HYPERFILE buffer.</div></div>
+<div class="ttc" id="ahyper__file_8h_html_a24f53ae7a869f84d2ba6fd6e2d6ffd23"><div class="ttname"><a href="hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23">HyperReadFileC</a></div><div class="ttdeci">HYPERSTATUS HyperReadFileC(FILE *in, HYPERFILE *dataptr, size_t *sizeptr)</div><div class="ttdoc">Read file into HYPERFILE buffer using standard C.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7e2309b68f2457fb03d6400dad1ecace.html">hyper</a></li><li class="navelem"><b>hyper_file.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7e2309b68f2457fb03d6400dad1ecace.html">hyper</a></li><li class="navelem"><a class="el" href="hyper__file_8h.html">hyper_file.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

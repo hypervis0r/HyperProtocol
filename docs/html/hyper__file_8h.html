@@ -89,11 +89,14 @@ $(document).ready(function(){initNavTree('hyper__file_8h.html',''); initResizabl
 <div class="title">hyper_file.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contains all file I/O functions.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sys/stat.h&gt;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="hyper_8h_source.html">hyper.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="hyper__network_8h_source.html">hyper/hyper_network.h</a>&gt;</code><br />
+<code>#include &lt;hyper/hyper_network.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -102,208 +105,66 @@ $(document).ready(function(){initNavTree('hyper__file_8h.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a15238d020022011672c7b89e03ddb706"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a15238d020022011672c7b89e03ddb706">READALL_CHUNK</a>&#160;&#160;&#160;262144</td></tr>
+<tr class="memitem:a15238d020022011672c7b89e03ddb706"><td class="memItemLeft" align="right" valign="top"><a id="a15238d020022011672c7b89e03ddb706"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_CHUNK</b>&#160;&#160;&#160;262144</td></tr>
 <tr class="separator:a15238d020022011672c7b89e03ddb706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b7e6fad801806419090c69df210b1d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a6b7e6fad801806419090c69df210b1d4">READALL_OK</a>&#160;&#160;&#160;0  /* Success */</td></tr>
+<tr class="memitem:a6b7e6fad801806419090c69df210b1d4"><td class="memItemLeft" align="right" valign="top"><a id="a6b7e6fad801806419090c69df210b1d4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_OK</b>&#160;&#160;&#160;0  /* Success */</td></tr>
 <tr class="separator:a6b7e6fad801806419090c69df210b1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11e3706ad1144afdd8ff0389569c0acc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a11e3706ad1144afdd8ff0389569c0acc">READALL_INVALID</a>&#160;&#160;&#160;-1  /* Invalid parameters */</td></tr>
+<tr class="memitem:a11e3706ad1144afdd8ff0389569c0acc"><td class="memItemLeft" align="right" valign="top"><a id="a11e3706ad1144afdd8ff0389569c0acc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_INVALID</b>&#160;&#160;&#160;-1  /* Invalid parameters */</td></tr>
 <tr class="separator:a11e3706ad1144afdd8ff0389569c0acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5fcf2cd1871ea96bc17ac759efdccb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a2d5fcf2cd1871ea96bc17ac759efdccb">READALL_ERROR</a>&#160;&#160;&#160;-2  /* Stream error */</td></tr>
+<tr class="memitem:a2d5fcf2cd1871ea96bc17ac759efdccb"><td class="memItemLeft" align="right" valign="top"><a id="a2d5fcf2cd1871ea96bc17ac759efdccb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_ERROR</b>&#160;&#160;&#160;-2  /* Stream error */</td></tr>
 <tr class="separator:a2d5fcf2cd1871ea96bc17ac759efdccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5b670868b7d99075a1b97fb18f869d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a3b5b670868b7d99075a1b97fb18f869d">READALL_TOOMUCH</a>&#160;&#160;&#160;-3  /* Too much input */</td></tr>
+<tr class="memitem:a3b5b670868b7d99075a1b97fb18f869d"><td class="memItemLeft" align="right" valign="top"><a id="a3b5b670868b7d99075a1b97fb18f869d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_TOOMUCH</b>&#160;&#160;&#160;-3  /* Too much input */</td></tr>
 <tr class="separator:a3b5b670868b7d99075a1b97fb18f869d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8356e8f549f5be276cd3c44164c1b54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#af8356e8f549f5be276cd3c44164c1b54">READALL_NOMEM</a>&#160;&#160;&#160;-4  /* Out of memory */</td></tr>
+<tr class="memitem:af8356e8f549f5be276cd3c44164c1b54"><td class="memItemLeft" align="right" valign="top"><a id="af8356e8f549f5be276cd3c44164c1b54"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>READALL_NOMEM</b>&#160;&#160;&#160;-4  /* Out of memory */</td></tr>
 <tr class="separator:af8356e8f549f5be276cd3c44164c1b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a43a46b4df51ba89e3fdbc1ed53cdd4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a7a43a46b4df51ba89e3fdbc1ed53cdd4">SEND_BLOCK_SIZE</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memitem:a7a43a46b4df51ba89e3fdbc1ed53cdd4"><td class="memItemLeft" align="right" valign="top"><a id="a7a43a46b4df51ba89e3fdbc1ed53cdd4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SEND_BLOCK_SIZE</b>&#160;&#160;&#160;4096</td></tr>
 <tr class="separator:a7a43a46b4df51ba89e3fdbc1ed53cdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c3d76297c93a12eb76304ba2490caac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a2c3d76297c93a12eb76304ba2490caac">RECV_BLOCK_SIZE</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memitem:a2c3d76297c93a12eb76304ba2490caac"><td class="memItemLeft" align="right" valign="top"><a id="a2c3d76297c93a12eb76304ba2490caac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RECV_BLOCK_SIZE</b>&#160;&#160;&#160;4096</td></tr>
 <tr class="separator:a2c3d76297c93a12eb76304ba2490caac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e3ad2c714832ab6609b85b285bae64d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a9e3ad2c714832ab6609b85b285bae64d">FILESIZE_BUFFER_SIZE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memitem:a9e3ad2c714832ab6609b85b285bae64d"><td class="memItemLeft" align="right" valign="top"><a id="a9e3ad2c714832ab6609b85b285bae64d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FILESIZE_BUFFER_SIZE</b>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a9e3ad2c714832ab6609b85b285bae64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a02905a0adaf6e4cf532ace649b92d3e7"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a></td></tr>
+<tr class="memitem:a02905a0adaf6e4cf532ace649b92d3e7"><td class="memItemLeft" align="right" valign="top"><a id="a02905a0adaf6e4cf532ace649b92d3e7"></a>
+typedef void *&#160;</td><td class="memItemRight" valign="bottom"><b>HYPERFILE</b></td></tr>
 <tr class="separator:a02905a0adaf6e4cf532ace649b92d3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a24f53ae7a869f84d2ba6fd6e2d6ffd23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23">HyperReadFileC</a> (FILE *in, <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *dataptr, size_t *sizeptr)</td></tr>
+<tr class="memitem:a24f53ae7a869f84d2ba6fd6e2d6ffd23"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23">HyperReadFileC</a> (FILE *in, HYPERFILE *dataptr, size_t *sizeptr)</td></tr>
+<tr class="memdesc:a24f53ae7a869f84d2ba6fd6e2d6ffd23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read file into HYPERFILE buffer using standard C.  <a href="hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23">More...</a><br /></td></tr>
 <tr class="separator:a24f53ae7a869f84d2ba6fd6e2d6ffd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ad252cf5a4ab2c7597e8a912f351345"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345">HyperReadFile</a> (const char *cpFilePath, <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *lpBuffer, size_t *lpFileSize)</td></tr>
+<tr class="memitem:a1ad252cf5a4ab2c7597e8a912f351345"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345">HyperReadFile</a> (const char *cpFilePath, HYPERFILE *lpBuffer, size_t *lpFileSize)</td></tr>
+<tr class="memdesc:a1ad252cf5a4ab2c7597e8a912f351345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read file into HYPERFILE buffer using platform-specifics.  <a href="hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345">More...</a><br /></td></tr>
 <tr class="separator:a1ad252cf5a4ab2c7597e8a912f351345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80d1b091e6fa759e84cb228eeb32afd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd">HyperWriteFileC</a> (FILE *pFile, const <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> hfBuffer, const size_t stFileSize)</td></tr>
+<tr class="memitem:aa80d1b091e6fa759e84cb228eeb32afd"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd">HyperWriteFileC</a> (FILE *pFile, const HYPERFILE hfBuffer, const size_t stFileSize)</td></tr>
+<tr class="memdesc:aa80d1b091e6fa759e84cb228eeb32afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write file from HYPERFILE buffer to disk using standard C.  <a href="hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd">More...</a><br /></td></tr>
 <tr class="separator:aa80d1b091e6fa759e84cb228eeb32afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1f12403807241a9c82e22c3ac8cfcd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3">HyperWriteFile</a> (const char *cpFilePath, const <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> hfBuffer, const size_t stFileSize)</td></tr>
+<tr class="memitem:af1f12403807241a9c82e22c3ac8cfcd3"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3">HyperWriteFile</a> (const char *cpFilePath, const HYPERFILE hfBuffer, const size_t stFileSize)</td></tr>
+<tr class="memdesc:af1f12403807241a9c82e22c3ac8cfcd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write file from HYPERFILE buffer to disk using platform-specifics.  <a href="hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3">More...</a><br /></td></tr>
 <tr class="separator:af1f12403807241a9c82e22c3ac8cfcd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fcf69afd9c81616aaac48a84891d37b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b">HyperReceiveFile</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sockServer, <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *lpBuffer, unsigned long *ulSize)</td></tr>
+<tr class="memitem:a2fcf69afd9c81616aaac48a84891d37b"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b">HyperReceiveFile</a> (const SOCKET sockServer, HYPERFILE *lpBuffer, unsigned long *ulSize)</td></tr>
+<tr class="memdesc:a2fcf69afd9c81616aaac48a84891d37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive file from network into HYPERFILE buffer.  <a href="hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b">More...</a><br /></td></tr>
 <tr class="separator:a2fcf69afd9c81616aaac48a84891d37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a885b772f84e47a106ca7a41fea41c226"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226">HyperSendFile</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sockServer, <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *lpBuffer, const unsigned long ulSize)</td></tr>
+<tr class="memitem:a885b772f84e47a106ca7a41fea41c226"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226">HyperSendFile</a> (const SOCKET sockServer, HYPERFILE *lpBuffer, const unsigned long ulSize)</td></tr>
+<tr class="memdesc:a885b772f84e47a106ca7a41fea41c226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send file from HYPERFILE buffer over network.  <a href="hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226">More...</a><br /></td></tr>
 <tr class="separator:a885b772f84e47a106ca7a41fea41c226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a9e3ad2c714832ab6609b85b285bae64d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e3ad2c714832ab6609b85b285bae64d">&#9670;&nbsp;</a></span>FILESIZE_BUFFER_SIZE</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Contains all file I/O functions. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FILESIZE_BUFFER_SIZE&#160;&#160;&#160;1024</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00019">19</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a15238d020022011672c7b89e03ddb706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15238d020022011672c7b89e03ddb706">&#9670;&nbsp;</a></span>READALL_CHUNK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_CHUNK&#160;&#160;&#160;262144</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00007">7</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a2d5fcf2cd1871ea96bc17ac759efdccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d5fcf2cd1871ea96bc17ac759efdccb">&#9670;&nbsp;</a></span>READALL_ERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_ERROR&#160;&#160;&#160;-2  /* Stream error */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00011">11</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a11e3706ad1144afdd8ff0389569c0acc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11e3706ad1144afdd8ff0389569c0acc">&#9670;&nbsp;</a></span>READALL_INVALID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_INVALID&#160;&#160;&#160;-1  /* Invalid parameters */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00010">10</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="af8356e8f549f5be276cd3c44164c1b54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8356e8f549f5be276cd3c44164c1b54">&#9670;&nbsp;</a></span>READALL_NOMEM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_NOMEM&#160;&#160;&#160;-4  /* Out of memory */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00013">13</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a6b7e6fad801806419090c69df210b1d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b7e6fad801806419090c69df210b1d4">&#9670;&nbsp;</a></span>READALL_OK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_OK&#160;&#160;&#160;0  /* Success */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00009">9</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a3b5b670868b7d99075a1b97fb18f869d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b5b670868b7d99075a1b97fb18f869d">&#9670;&nbsp;</a></span>READALL_TOOMUCH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define READALL_TOOMUCH&#160;&#160;&#160;-3  /* Too much input */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00012">12</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a2c3d76297c93a12eb76304ba2490caac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3d76297c93a12eb76304ba2490caac">&#9670;&nbsp;</a></span>RECV_BLOCK_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RECV_BLOCK_SIZE&#160;&#160;&#160;4096</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00017">17</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a7a43a46b4df51ba89e3fdbc1ed53cdd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a43a46b4df51ba89e3fdbc1ed53cdd4">&#9670;&nbsp;</a></span>SEND_BLOCK_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SEND_BLOCK_SIZE&#160;&#160;&#160;4096</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00016">16</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a02905a0adaf6e4cf532ace649b92d3e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02905a0adaf6e4cf532ace649b92d3e7">&#9670;&nbsp;</a></span>HYPERFILE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void* <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__file_8h_source.html#l00022">22</a> of file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<p class="definition">Definition in file <a class="el" href="hyper__file_8h_source.html">hyper_file.h</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a1ad252cf5a4ab2c7597e8a912f351345"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ad252cf5a4ab2c7597e8a912f351345">&#9670;&nbsp;</a></span>HyperReadFile()</h2>
 
@@ -311,7 +172,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperReadFile </td>
+          <td class="memname">HYPERSTATUS HyperReadFile </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cpFilePath</em>, </td>
@@ -319,7 +180,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *&#160;</td>
+          <td class="paramtype">HYPERFILE *&#160;</td>
           <td class="paramname"><em>lpBuffer</em>, </td>
         </tr>
         <tr>
@@ -336,6 +197,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Read file into HYPERFILE buffer using platform-specifics. </p>
+<p>Reads a file from a file path into a HYPERFILE buffer. Uses platform-specific file I/O functions for faster speed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cpFilePath</td><td>char pointer to file path on disk </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lpBuffer</td><td>Pointer to a NULL HYPERFILE buffer that holds the file </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lpFileSize</td><td>Pointer to a size_t that holds the file size</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED. </dd></dl>
+
 </div>
 </div>
 <a id="a24f53ae7a869f84d2ba6fd6e2d6ffd23"></a>
@@ -345,7 +218,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperReadFileC </td>
+          <td class="memname">HYPERSTATUS HyperReadFileC </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>in</em>, </td>
@@ -353,7 +226,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *&#160;</td>
+          <td class="paramtype">HYPERFILE *&#160;</td>
           <td class="paramname"><em>dataptr</em>, </td>
         </tr>
         <tr>
@@ -370,6 +243,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Read file into HYPERFILE buffer using standard C. </p>
+<p>Reads a file from a FILE pointer into a HYPERFILE buffer. Uses Standard C for platform-agnostic file I/O.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>FILE pointer to an open file </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dataptr</td><td>Pointer to a NULL HYPERFILE buffer that holds the file </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sizeptr</td><td>Pointer to a size_t that holds the file size</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED. </dd></dl>
+
 </div>
 </div>
 <a id="a2fcf69afd9c81616aaac48a84891d37b"></a>
@@ -379,15 +264,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperReceiveFile </td>
+          <td class="memname">HYPERSTATUS HyperReceiveFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sockServer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *&#160;</td>
+          <td class="paramtype">HYPERFILE *&#160;</td>
           <td class="paramname"><em>lpBuffer</em>, </td>
         </tr>
         <tr>
@@ -404,6 +289,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Receive file from network into HYPERFILE buffer. </p>
+<p>Recieves a file from a connected socket, and writes it into a HYPERFILE buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sockServer</td><td>Open, connected socket to receive from </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lpBuffer</td><td>HYPERFILE buffer to write data to </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stFileSize</td><td>size_t to write file size to</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED. </dd></dl>
+
 </div>
 </div>
 <a id="a885b772f84e47a106ca7a41fea41c226"></a>
@@ -413,15 +310,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperSendFile </td>
+          <td class="memname">HYPERSTATUS HyperSendFile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sockServer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a> *&#160;</td>
+          <td class="paramtype">HYPERFILE *&#160;</td>
           <td class="paramname"><em>lpBuffer</em>, </td>
         </tr>
         <tr>
@@ -438,6 +335,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Send file from HYPERFILE buffer over network. </p>
+<p>Sends a file stored in a HYPERFILE buffer over the network to a connected socket.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sockServer</td><td>Open, connected socket to send to </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>lpBuffer HYPERFILE buffer to write data to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stFileSize</td><td>size_t to write file size to</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED.</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>lpBuffer is reallocated to (ulSize + SEND_BLOCK_SIZE) </dd></dl>
+
 </div>
 </div>
 <a id="af1f12403807241a9c82e22c3ac8cfcd3"></a>
@@ -447,7 +357,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperWriteFile </td>
+          <td class="memname">HYPERSTATUS HyperWriteFile </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cpFilePath</em>, </td>
@@ -455,7 +365,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a>&#160;</td>
+          <td class="paramtype">const HYPERFILE&#160;</td>
           <td class="paramname"><em>hfBuffer</em>, </td>
         </tr>
         <tr>
@@ -471,6 +381,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Write file from HYPERFILE buffer to disk using platform-specifics. </p>
+<p>Writes a file from a HYPERFILE buffer to disk. Uses platform-specific file I/O for faster speeds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cpFilePath</td><td>File path to write file to <br  />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hfBuffer</td><td>HYPERFILE buffer thats holding file data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stFileSize</td><td>size_t that holds the file size</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED. </dd></dl>
 
 </div>
 </div>
@@ -481,7 +404,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperWriteFileC </td>
+          <td class="memname">HYPERSTATUS HyperWriteFileC </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>pFile</em>, </td>
@@ -489,7 +412,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="hyper__file_8h.html#a02905a0adaf6e4cf532ace649b92d3e7">HYPERFILE</a>&#160;</td>
+          <td class="paramtype">const HYPERFILE&#160;</td>
           <td class="paramname"><em>hfBuffer</em>, </td>
         </tr>
         <tr>
@@ -505,6 +428,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Write file from HYPERFILE buffer to disk using standard C. </p>
+<p>Writes a file from a HYPERFILE buffer to disk. Uses Standard C for platform-agnostic file I/O.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>in FILE pointer to an open file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hfBuffer</td><td>HYPERFILE buffer thats holding file data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stFileSize</td><td>size_t that holds the file size</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful. If something fails, returns HYPER_FAILED. </dd></dl>
 
 </div>
 </div>
