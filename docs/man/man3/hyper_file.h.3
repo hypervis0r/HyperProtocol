@@ -115,7 +115,16 @@ Read file into HYPERFILE buffer using platform-specifics\&. Reads a file from a 
 .PP
 \fBReturns\fP
 .RS 4
-Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperWriteFile\fP 
+.PP
+\fBHyperReadFileC\fP 
+.PP
+\fBHyperWriteFileC\fP 
 .RE
 .PP
 
@@ -135,7 +144,16 @@ Read file into HYPERFILE buffer using standard C\&. Reads a file from a FILE poi
 .PP
 \fBReturns\fP
 .RS 4
-Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperWriteFileC\fP 
+.PP
+\fBHyperReadFile\fP 
+.PP
+\fBHyperWriteFile\fP 
 .RE
 .PP
 
@@ -155,7 +173,12 @@ Receive file from network into HYPERFILE buffer\&. Recieves a file from a connec
 .PP
 \fBReturns\fP
 .RS 4
-Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperSendFile\fP 
 .RE
 .PP
 
@@ -180,7 +203,12 @@ Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\
 .PP
 \fBRemarks\fP
 .RS 4
-lpBuffer is reallocated to (ulSize + SEND_BLOCK_SIZE) 
+lpBuffer is reallocated to (ulSize + SEND_BLOCK_SIZE)
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperReceiveFile\fP 
 .RE
 .PP
 
@@ -202,7 +230,16 @@ Write file from HYPERFILE buffer to disk using platform-specifics\&. Writes a fi
 .PP
 \fBReturns\fP
 .RS 4
-Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperReadFile\fP 
+.PP
+\fBHyperWriteFileC\fP 
+.PP
+\fBHyperReadFileC\fP 
 .RE
 .PP
 
@@ -222,7 +259,16 @@ Write file from HYPERFILE buffer to disk using standard C\&. Writes a file from 
 .PP
 \fBReturns\fP
 .RS 4
-Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&. 
+Returns HYPER_SUCCESS if successful\&. If something fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperReadFileC\fP 
+.PP
+\fBHyperWriteFile\fP 
+.PP
+\fBHyperReadFile\fP 
 .RE
 .PP
 

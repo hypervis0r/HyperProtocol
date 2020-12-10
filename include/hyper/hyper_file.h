@@ -57,6 +57,10 @@ typedef void*   HYPERFILE;
  *
  * \result Returns HYPER_SUCCESS if successful. If something fails, returns 
  *      HYPER_FAILED.
+ *
+ * \see HyperWriteFileC
+ * \see HyperReadFile
+ * \see HyperWriteFile
  */
 HYPERSTATUS 
 HyperReadFileC(
@@ -77,6 +81,10 @@ HyperReadFileC(
  *
  * \result Returns HYPER_SUCCESS if successful. If something fails, returns 
  *      HYPER_FAILED.
+ *
+ * \see HyperWriteFile
+ * \see HyperReadFileC
+ * \see HyperWriteFileC
  */
 HYPERSTATUS
 HyperReadFile(
@@ -97,6 +105,10 @@ HyperReadFile(
  *
  * \result Returns HYPER_SUCCESS if successful. If something fails, returns 
  *      HYPER_FAILED.
+ *
+ * \see HyperReadFileC
+ * \see HyperWriteFile
+ * \see HyperReadFile
  */
 HYPERSTATUS
 HyperWriteFileC(
@@ -117,6 +129,10 @@ HyperWriteFileC(
  *
  * \result Returns HYPER_SUCCESS if successful. If something fails, returns 
  *      HYPER_FAILED.
+ *
+ * \see HyperReadFile
+ * \see HyperWriteFileC
+ * \see HyperReadFileC
  */
 HYPERSTATUS
 HyperWriteFile(
@@ -137,6 +153,8 @@ HyperWriteFile(
  *
  * \result Returns HYPER_SUCCESS if successful. If something fails, returns 
  *      HYPER_FAILED.
+ *
+ * \see HyperSendFile
  */
 HYPERSTATUS 
 HyperReceiveFile(
@@ -159,6 +177,8 @@ HyperReceiveFile(
  *      HYPER_FAILED.
  *
  * \remarks lpBuffer is reallocated to (ulSize + SEND_BLOCK_SIZE)
+ *
+ * \see HyperReceiveFile
  */
 HYPERSTATUS 
 HyperSendFile(
