@@ -1,12 +1,23 @@
 var searchData=
 [
-  ['hypermemalloc_13',['HyperMemAlloc',['../hyper_8h.html#afe26c2fdb54f774335b134b96867a1f2',1,'hyper.h']]],
-  ['hypermemfree_14',['HyperMemFree',['../hyper_8h.html#acaea6c6f46a0104505bd182449226445',1,'hyper.h']]],
-  ['hypermemrealloc_15',['HyperMemRealloc',['../hyper_8h.html#a8a220d180abc76e00b39dae5975cce43',1,'hyper.h']]],
-  ['hyperreadfile_16',['HyperReadFile',['../hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345',1,'hyper_file.h']]],
-  ['hyperreadfilec_17',['HyperReadFileC',['../hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23',1,'hyper_file.h']]],
-  ['hyperreceivefile_18',['HyperReceiveFile',['../hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b',1,'hyper_file.h']]],
-  ['hypersendfile_19',['HyperSendFile',['../hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226',1,'hyper_file.h']]],
-  ['hyperwritefile_20',['HyperWriteFile',['../hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3',1,'hyper_file.h']]],
-  ['hyperwritefilec_21',['HyperWriteFileC',['../hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd',1,'hyper_file.h']]]
+  ['hyperclosesocket_26',['HyperCloseSocket',['../hyper__network_8h.html#ae6eac358177bae01d1bd4e79562253cd',1,'hyper_network.h']]],
+  ['hyperconnectserver_27',['HyperConnectServer',['../hyper__network_8h.html#a18ea9c95a2e33b863dd4b049f8b7a208',1,'hyper_network.h']]],
+  ['hypermemalloc_28',['HyperMemAlloc',['../hyper_8h.html#afe26c2fdb54f774335b134b96867a1f2',1,'hyper.h']]],
+  ['hypermemfree_29',['HyperMemFree',['../hyper_8h.html#acaea6c6f46a0104505bd182449226445',1,'hyper.h']]],
+  ['hypermemrealloc_30',['HyperMemRealloc',['../hyper_8h.html#a8a220d180abc76e00b39dae5975cce43',1,'hyper.h']]],
+  ['hypernetworkinit_31',['HyperNetworkInit',['../hyper__network_8h.html#abf65b08a813f9a5e3c78e182d8079a1c',1,'hyper_network.h']]],
+  ['hyperreadfile_32',['HyperReadFile',['../hyper__file_8h.html#a1ad252cf5a4ab2c7597e8a912f351345',1,'hyper_file.h']]],
+  ['hyperreadfilec_33',['HyperReadFileC',['../hyper__file_8h.html#a24f53ae7a869f84d2ba6fd6e2d6ffd23',1,'hyper_file.h']]],
+  ['hyperreceivecommand_34',['HyperReceiveCommand',['../hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7',1,'hyper_network.h']]],
+  ['hyperreceivefile_35',['HyperReceiveFile',['../hyper__file_8h.html#a2fcf69afd9c81616aaac48a84891d37b',1,'hyper_file.h']]],
+  ['hyperreceivestatus_36',['HyperReceiveStatus',['../hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c',1,'hyper_network.h']]],
+  ['hypersendcommand_37',['HyperSendCommand',['../hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c',1,'hyper_network.h']]],
+  ['hypersendfile_38',['HyperSendFile',['../hyper__file_8h.html#a885b772f84e47a106ca7a41fea41c226',1,'hyper_file.h']]],
+  ['hypersendstatus_39',['HyperSendStatus',['../hyper__network_8h.html#a445680b24d313736cf11866fe0511902',1,'hyper_network.h']]],
+  ['hyperserverlisten_40',['HyperServerListen',['../hyper__network_8h.html#ae1ae8ba52444bc6b0c31ec85278d509b',1,'hyper_network.h']]],
+  ['hypersocket_41',['HyperSocket',['../hyper__network_8h.html#accefbb2e970e7c27e8a7c0b9a9773faf',1,'hyper_network.h']]],
+  ['hypersocketcleanup_42',['HyperSocketCleanup',['../hyper__network_8h.html#a559e9dbe1eabc14dfe56b38839344986',1,'hyper_network.h']]],
+  ['hyperstartserver_43',['HyperStartServer',['../hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70',1,'hyper_network.h']]],
+  ['hyperwritefile_44',['HyperWriteFile',['../hyper__file_8h.html#af1f12403807241a9c82e22c3ac8cfcd3',1,'hyper_file.h']]],
+  ['hyperwritefilec_45',['HyperWriteFileC',['../hyper__file_8h.html#aa80d1b091e6fa759e84cb228eeb32afd',1,'hyper_file.h']]]
 ];

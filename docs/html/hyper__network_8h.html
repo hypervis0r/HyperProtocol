@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('hyper__network_8h.html',''); initResiz
 <div class="title">hyper_network.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contains Hyper Networking functions and definitions.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sys/socket.h&gt;</code><br />
 <code>#include &lt;arpa/inet.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
@@ -100,164 +103,72 @@ $(document).ready(function(){initNavTree('hyper__network_8h.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aaac251a63e765d82a11f6050f3e65f3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#aaac251a63e765d82a11f6050f3e65f3c">CONNECTION_CLOSED</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:aaac251a63e765d82a11f6050f3e65f3c"><td class="memItemLeft" align="right" valign="top"><a id="aaac251a63e765d82a11f6050f3e65f3c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONNECTION_CLOSED</b>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aaac251a63e765d82a11f6050f3e65f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26769957ec1a2beaf223f33b66ee64ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a26769957ec1a2beaf223f33b66ee64ab">INVALID_SOCKET</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a26769957ec1a2beaf223f33b66ee64ab"><td class="memItemLeft" align="right" valign="top"><a id="a26769957ec1a2beaf223f33b66ee64ab"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INVALID_SOCKET</b>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a26769957ec1a2beaf223f33b66ee64ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a633b0396ff93d336a088412a190a5072"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a633b0396ff93d336a088412a190a5072">SOCKET_ERROR</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a633b0396ff93d336a088412a190a5072"><td class="memItemLeft" align="right" valign="top"><a id="a633b0396ff93d336a088412a190a5072"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SOCKET_ERROR</b>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a633b0396ff93d336a088412a190a5072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8dc8083897335125630f1af5dafd5831"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a></td></tr>
+<tr class="memitem:a8dc8083897335125630f1af5dafd5831"><td class="memItemLeft" align="right" valign="top"><a id="a8dc8083897335125630f1af5dafd5831"></a>
+typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>SOCKET</b></td></tr>
 <tr class="separator:a8dc8083897335125630f1af5dafd5831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29046dc0232f0e5c70adbc25090d77b8"><td class="memItemLeft" align="right" valign="top">typedef struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a29046dc0232f0e5c70adbc25090d77b8">SOCKADDR_IN</a></td></tr>
+<tr class="memitem:a29046dc0232f0e5c70adbc25090d77b8"><td class="memItemLeft" align="right" valign="top"><a id="a29046dc0232f0e5c70adbc25090d77b8"></a>
+typedef struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><b>SOCKADDR_IN</b></td></tr>
 <tr class="separator:a29046dc0232f0e5c70adbc25090d77b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae334b73cedf7204187dce3f817576009"><td class="memItemLeft" align="right" valign="top">typedef struct sockaddr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ae334b73cedf7204187dce3f817576009">SOCKADDR</a></td></tr>
+<tr class="memitem:ae334b73cedf7204187dce3f817576009"><td class="memItemLeft" align="right" valign="top"><a id="ae334b73cedf7204187dce3f817576009"></a>
+typedef struct sockaddr&#160;</td><td class="memItemRight" valign="bottom"><b>SOCKADDR</b></td></tr>
 <tr class="separator:ae334b73cedf7204187dce3f817576009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4f5022523e386f2e6d49b03975bd3ec"><td class="memItemLeft" align="right" valign="top">typedef socklen_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ad4f5022523e386f2e6d49b03975bd3ec">SOCKLEN</a></td></tr>
+<tr class="memitem:ad4f5022523e386f2e6d49b03975bd3ec"><td class="memItemLeft" align="right" valign="top"><a id="ad4f5022523e386f2e6d49b03975bd3ec"></a>
+typedef socklen_t&#160;</td><td class="memItemRight" valign="bottom"><b>SOCKLEN</b></td></tr>
 <tr class="separator:ad4f5022523e386f2e6d49b03975bd3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abf65b08a813f9a5e3c78e182d8079a1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#abf65b08a813f9a5e3c78e182d8079a1c">HyperNetworkInit</a> (void)</td></tr>
+<tr class="memitem:abf65b08a813f9a5e3c78e182d8079a1c"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#abf65b08a813f9a5e3c78e182d8079a1c">HyperNetworkInit</a> (void)</td></tr>
+<tr class="memdesc:abf65b08a813f9a5e3c78e182d8079a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Hyper Network functions.  <a href="hyper__network_8h.html#abf65b08a813f9a5e3c78e182d8079a1c">More...</a><br /></td></tr>
 <tr class="separator:abf65b08a813f9a5e3c78e182d8079a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6eac358177bae01d1bd4e79562253cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ae6eac358177bae01d1bd4e79562253cd">HyperCloseSocket</a> (<a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sock)</td></tr>
+<tr class="memitem:ae6eac358177bae01d1bd4e79562253cd"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ae6eac358177bae01d1bd4e79562253cd">HyperCloseSocket</a> (SOCKET sock)</td></tr>
+<tr class="memdesc:ae6eac358177bae01d1bd4e79562253cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a SOCKET object.  <a href="hyper__network_8h.html#ae6eac358177bae01d1bd4e79562253cd">More...</a><br /></td></tr>
 <tr class="separator:ae6eac358177bae01d1bd4e79562253cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a559e9dbe1eabc14dfe56b38839344986"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a559e9dbe1eabc14dfe56b38839344986">HyperSocketCleanup</a> (void)</td></tr>
+<tr class="memitem:a559e9dbe1eabc14dfe56b38839344986"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a559e9dbe1eabc14dfe56b38839344986">HyperSocketCleanup</a> (void)</td></tr>
+<tr class="memdesc:a559e9dbe1eabc14dfe56b38839344986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up Hyper Network functions for exiting.  <a href="hyper__network_8h.html#a559e9dbe1eabc14dfe56b38839344986">More...</a><br /></td></tr>
 <tr class="separator:a559e9dbe1eabc14dfe56b38839344986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accefbb2e970e7c27e8a7c0b9a9773faf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#accefbb2e970e7c27e8a7c0b9a9773faf">HyperSocket</a> (<a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *sock)</td></tr>
+<tr class="memitem:accefbb2e970e7c27e8a7c0b9a9773faf"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#accefbb2e970e7c27e8a7c0b9a9773faf">HyperSocket</a> (SOCKET *sock)</td></tr>
+<tr class="memdesc:accefbb2e970e7c27e8a7c0b9a9773faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a valid SOCKET object for use with Hyper Networking.  <a href="hyper__network_8h.html#accefbb2e970e7c27e8a7c0b9a9773faf">More...</a><br /></td></tr>
 <tr class="separator:accefbb2e970e7c27e8a7c0b9a9773faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ea9c95a2e33b863dd4b049f8b7a208"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a18ea9c95a2e33b863dd4b049f8b7a208">HyperConnectServer</a> (<a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *sock, const char *cpServerIP, const unsigned short usPort)</td></tr>
+<tr class="memitem:a18ea9c95a2e33b863dd4b049f8b7a208"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a18ea9c95a2e33b863dd4b049f8b7a208">HyperConnectServer</a> (SOCKET *sock, const char *cpServerIP, const unsigned short usPort)</td></tr>
+<tr class="memdesc:a18ea9c95a2e33b863dd4b049f8b7a208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects to an open Hyper Server.  <a href="hyper__network_8h.html#a18ea9c95a2e33b863dd4b049f8b7a208">More...</a><br /></td></tr>
 <tr class="separator:a18ea9c95a2e33b863dd4b049f8b7a208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b4cf8f9ac38f7c975690ef6ec84b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70">HyperStartServer</a> (<a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *sock, const unsigned short usPort)</td></tr>
+<tr class="memitem:a47b4cf8f9ac38f7c975690ef6ec84b70"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70">HyperStartServer</a> (SOCKET *sock, const unsigned short usPort)</td></tr>
+<tr class="memdesc:a47b4cf8f9ac38f7c975690ef6ec84b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a Hyper Server at specified port.  <a href="hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70">More...</a><br /></td></tr>
 <tr class="separator:a47b4cf8f9ac38f7c975690ef6ec84b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ae8ba52444bc6b0c31ec85278d509b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ae1ae8ba52444bc6b0c31ec85278d509b">HyperServerListen</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sockServer, <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *sockClient)</td></tr>
+<tr class="memitem:ae1ae8ba52444bc6b0c31ec85278d509b"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#ae1ae8ba52444bc6b0c31ec85278d509b">HyperServerListen</a> (const SOCKET sockServer, SOCKET *sockClient)</td></tr>
+<tr class="memdesc:ae1ae8ba52444bc6b0c31ec85278d509b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens for connections to the server.  <a href="hyper__network_8h.html#ae1ae8ba52444bc6b0c31ec85278d509b">More...</a><br /></td></tr>
 <tr class="separator:ae1ae8ba52444bc6b0c31ec85278d509b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdc803da72260f6af8e5c2ac927d32a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7">HyperReceiveCommand</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sock, char *cpCommand, size_t stMaxCommandLength)</td></tr>
+<tr class="memitem:abdc803da72260f6af8e5c2ac927d32a7"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7">HyperReceiveCommand</a> (const SOCKET sock, char *cpCommand, size_t stMaxCommandLength)</td></tr>
+<tr class="memdesc:abdc803da72260f6af8e5c2ac927d32a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieve command from connection.  <a href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7">More...</a><br /></td></tr>
 <tr class="separator:abdc803da72260f6af8e5c2ac927d32a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ea5fc503ac0d4f7fd45478d1339c03c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c">HyperSendCommand</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sock, const char *cpCommand)</td></tr>
+<tr class="memitem:a6ea5fc503ac0d4f7fd45478d1339c03c"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c">HyperSendCommand</a> (const SOCKET sock, const char *cpCommand)</td></tr>
+<tr class="memdesc:a6ea5fc503ac0d4f7fd45478d1339c03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send command to connection.  <a href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c">More...</a><br /></td></tr>
 <tr class="separator:a6ea5fc503ac0d4f7fd45478d1339c03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445680b24d313736cf11866fe0511902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902">HyperSendStatus</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sock, const unsigned short status)</td></tr>
+<tr class="memitem:a445680b24d313736cf11866fe0511902"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902">HyperSendStatus</a> (const SOCKET sock, const unsigned short status)</td></tr>
+<tr class="memdesc:a445680b24d313736cf11866fe0511902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send Status Response to connection.  <a href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902">More...</a><br /></td></tr>
 <tr class="separator:a445680b24d313736cf11866fe0511902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ac7adabbf4252bea2be590b2e82d23c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c">HyperReceiveStatus</a> (const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> sock, unsigned short *status)</td></tr>
+<tr class="memitem:a3ac7adabbf4252bea2be590b2e82d23c"><td class="memItemLeft" align="right" valign="top">HYPERSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c">HyperReceiveStatus</a> (const SOCKET sock, unsigned short *status)</td></tr>
+<tr class="memdesc:a3ac7adabbf4252bea2be590b2e82d23c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive Status Response from connection.  <a href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c">More...</a><br /></td></tr>
 <tr class="separator:a3ac7adabbf4252bea2be590b2e82d23c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aaac251a63e765d82a11f6050f3e65f3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaac251a63e765d82a11f6050f3e65f3c">&#9670;&nbsp;</a></span>CONNECTION_CLOSED</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Contains Hyper Networking functions and definitions. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CONNECTION_CLOSED&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00004">4</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<a id="a26769957ec1a2beaf223f33b66ee64ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26769957ec1a2beaf223f33b66ee64ab">&#9670;&nbsp;</a></span>INVALID_SOCKET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INVALID_SOCKET&#160;&#160;&#160;-1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00025">25</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<a id="a633b0396ff93d336a088412a190a5072"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a633b0396ff93d336a088412a190a5072">&#9670;&nbsp;</a></span>SOCKET_ERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SOCKET_ERROR&#160;&#160;&#160;-1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00026">26</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ae334b73cedf7204187dce3f817576009"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae334b73cedf7204187dce3f817576009">&#9670;&nbsp;</a></span>SOCKADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct sockaddr <a class="el" href="hyper__network_8h.html#ae334b73cedf7204187dce3f817576009">SOCKADDR</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00022">22</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<a id="a29046dc0232f0e5c70adbc25090d77b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29046dc0232f0e5c70adbc25090d77b8">&#9670;&nbsp;</a></span>SOCKADDR_IN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct sockaddr_in <a class="el" href="hyper__network_8h.html#a29046dc0232f0e5c70adbc25090d77b8">SOCKADDR_IN</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00021">21</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<a id="a8dc8083897335125630f1af5dafd5831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dc8083897335125630f1af5dafd5831">&#9670;&nbsp;</a></span>SOCKET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00019">19</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<a id="ad4f5022523e386f2e6d49b03975bd3ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4f5022523e386f2e6d49b03975bd3ec">&#9670;&nbsp;</a></span>SOCKLEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef socklen_t <a class="el" href="hyper__network_8h.html#ad4f5022523e386f2e6d49b03975bd3ec">SOCKLEN</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hyper__network_8h_source.html#l00023">23</a> of file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<p class="definition">Definition in file <a class="el" href="hyper__network_8h_source.html">hyper_network.h</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae6eac358177bae01d1bd4e79562253cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6eac358177bae01d1bd4e79562253cd">&#9670;&nbsp;</a></span>HyperCloseSocket()</h2>
 
@@ -265,14 +176,25 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperCloseSocket </td>
+          <td class="memname">HYPERSTATUS HyperCloseSocket </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">SOCKET&#160;</td>
           <td class="paramname"><em>sock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Closes a SOCKET object. </p>
+<p>Closes a SOCKET object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>Socket to close</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#accefbb2e970e7c27e8a7c0b9a9773faf" title="Creates a valid SOCKET object for use with Hyper Networking.">HyperSocket</a> </dd></dl>
 
 </div>
 </div>
@@ -283,9 +205,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperConnectServer </td>
+          <td class="memname">HYPERSTATUS HyperConnectServer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *&#160;</td>
+          <td class="paramtype">SOCKET *&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -308,6 +230,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Connects to an open Hyper Server. </p>
+<p>Connects to an open Hyper Server using the specified server IP and port.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sock</td><td>Pointer to SOCKET object to connect with </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cpServerIP</td><td>Char pointer containing IP address of server </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">usPort</td><td>Unsigned port number of server</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70" title="Starts a Hyper Server at specified port.">HyperStartServer</a> </dd></dl>
+
 </div>
 </div>
 <a id="abf65b08a813f9a5e3c78e182d8079a1c"></a>
@@ -317,7 +252,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperNetworkInit </td>
+          <td class="memname">HYPERSTATUS HyperNetworkInit </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -325,6 +260,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes the Hyper Network functions. </p>
+<p>Initializes the Hyper Network functions so networking works properly.</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>As of right now, this is only needed for Windows applications. However, this could change, so it is advised to use this function anyways.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a559e9dbe1eabc14dfe56b38839344986" title="Cleans up Hyper Network functions for exiting.">HyperSocketCleanup</a> </dd></dl>
 
 </div>
 </div>
@@ -335,9 +276,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperReceiveCommand </td>
+          <td class="memname">HYPERSTATUS HyperReceiveCommand </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -360,6 +301,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Recieve command from connection. </p>
+<p>Recieves a command sent from connected peer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>SOCKET object to receive from </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cpCommand</td><td>Char pointer buffer to write command to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stMaxCommandLength</td><td>Max buffer size for cpCommand</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c" title="Send command to connection.">HyperSendCommand</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902" title="Send Status Response to connection.">HyperSendStatus</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c" title="Receive Status Response from connection.">HyperReceiveStatus</a> </dd></dl>
+
 </div>
 </div>
 <a id="a3ac7adabbf4252bea2be590b2e82d23c"></a>
@@ -369,9 +327,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperReceiveStatus </td>
+          <td class="memname">HYPERSTATUS HyperReceiveStatus </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -388,6 +346,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Receive Status Response from connection. </p>
+<p>Receives a Status Response Code from a connected peer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>SOCKET object to receive from </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Pointer to unsigned short to store status in</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902" title="Send Status Response to connection.">HyperSendStatus</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c" title="Send command to connection.">HyperSendCommand</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7" title="Recieve command from connection.">HyperReceiveCommand</a> </dd></dl>
+
 </div>
 </div>
 <a id="a6ea5fc503ac0d4f7fd45478d1339c03c"></a>
@@ -397,9 +371,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperSendCommand </td>
+          <td class="memname">HYPERSTATUS HyperSendCommand </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -416,6 +390,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Send command to connection. </p>
+<p>Sends a command to connected peer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>SOCKET object to send to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cpCommand</td><td>Char pointer buffer storing command to send</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7" title="Recieve command from connection.">HyperReceiveCommand</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a445680b24d313736cf11866fe0511902" title="Send Status Response to connection.">HyperSendStatus</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c" title="Receive Status Response from connection.">HyperReceiveStatus</a> </dd></dl>
+
 </div>
 </div>
 <a id="a445680b24d313736cf11866fe0511902"></a>
@@ -425,9 +415,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperSendStatus </td>
+          <td class="memname">HYPERSTATUS HyperSendStatus </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -444,6 +434,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Send Status Response to connection. </p>
+<p>Sends a Status Response Code to connected peer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>SOCKET object to send to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>unsigned short storing status to send</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a3ac7adabbf4252bea2be590b2e82d23c" title="Receive Status Response from connection.">HyperReceiveStatus</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#a6ea5fc503ac0d4f7fd45478d1339c03c" title="Send command to connection.">HyperSendCommand</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#abdc803da72260f6af8e5c2ac927d32a7" title="Recieve command from connection.">HyperReceiveCommand</a> </dd></dl>
+
 </div>
 </div>
 <a id="ae1ae8ba52444bc6b0c31ec85278d509b"></a>
@@ -453,15 +459,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperServerListen </td>
+          <td class="memname">HYPERSTATUS HyperServerListen </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a>&#160;</td>
+          <td class="paramtype">const SOCKET&#160;</td>
           <td class="paramname"><em>sockServer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *&#160;</td>
+          <td class="paramtype">SOCKET *&#160;</td>
           <td class="paramname"><em>sockClient</em>&#160;</td>
         </tr>
         <tr>
@@ -472,6 +478,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Listens for connections to the server. </p>
+<p>Listens for incoming connections to the server. Blocks thread until connection is received.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sockServer</td><td>SOCKET object to server </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sockClient</td><td>Pointer to SOCKET object used to store the connected client</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a47b4cf8f9ac38f7c975690ef6ec84b70" title="Starts a Hyper Server at specified port.">HyperStartServer</a> </dd></dl>
+
 </div>
 </div>
 <a id="accefbb2e970e7c27e8a7c0b9a9773faf"></a>
@@ -481,14 +499,25 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperSocket </td>
+          <td class="memname">HYPERSTATUS HyperSocket </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *&#160;</td>
+          <td class="paramtype">SOCKET *&#160;</td>
           <td class="paramname"><em>sock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a valid SOCKET object for use with Hyper Networking. </p>
+<p>Creates a valid SOCKET object for use with Hyper Networking functions. Must be connected using either connect() or accept()/listen().</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sock</td><td>Pointer to SOCKET object to write socket into</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#ae6eac358177bae01d1bd4e79562253cd" title="Closes a SOCKET object.">HyperCloseSocket</a> </dd></dl>
 
 </div>
 </div>
@@ -499,7 +528,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperSocketCleanup </td>
+          <td class="memname">HYPERSTATUS HyperSocketCleanup </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -507,6 +536,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cleans up Hyper Network functions for exiting. </p>
+<p>Cleans up Hyper Network functions. Once this function is called, networking will no longer be successful, so it should only be called when finished with networking.</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>As of right now, this is only needed for Windows applications. However, this could change, so it is advised to use this function anyways.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#abf65b08a813f9a5e3c78e182d8079a1c" title="Initializes the Hyper Network functions.">HyperNetworkInit</a> </dd></dl>
 
 </div>
 </div>
@@ -517,9 +552,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="hyper_8h.html#aed41b8c9a608cb2b980c6ff6552fb50c">HYPERSTATUS</a> HyperStartServer </td>
+          <td class="memname">HYPERSTATUS HyperStartServer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="hyper__network_8h.html#a8dc8083897335125630f1af5dafd5831">SOCKET</a> *&#160;</td>
+          <td class="paramtype">SOCKET *&#160;</td>
           <td class="paramname"><em>sock</em>, </td>
         </tr>
         <tr>
@@ -535,6 +570,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Starts a Hyper Server at specified port. </p>
+<p>Starts and initializes a Hyper Server at the specified port.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sock</td><td>Pointer to SOCKET object to use for connections </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">usPort</td><td>Unsigned port number to bind to</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hyper__network_8h.html#a18ea9c95a2e33b863dd4b049f8b7a208" title="Connects to an open Hyper Server.">HyperConnectServer</a> </dd>
+<dd>
+<a class="el" href="hyper__network_8h.html#ae1ae8ba52444bc6b0c31ec85278d509b" title="Listens for connections to the server.">HyperServerListen</a> </dd></dl>
 
 </div>
 </div>

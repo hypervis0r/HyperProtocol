@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-include/hyper/hyper_network.h
+include/hyper/hyper_network.h \- Contains Hyper Networking functions and definitions\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -52,94 +53,325 @@ include/hyper/hyper_network.h
 
 .in +1c
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperNetworkInit\fP (void)"
+.RI "HYPERSTATUS \fBHyperNetworkInit\fP (void)"
 .br
+.RI "Initializes the Hyper Network functions\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperCloseSocket\fP (\fBSOCKET\fP sock)"
+.RI "HYPERSTATUS \fBHyperCloseSocket\fP (SOCKET sock)"
 .br
+.RI "Closes a SOCKET object\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperSocketCleanup\fP (void)"
+.RI "HYPERSTATUS \fBHyperSocketCleanup\fP (void)"
 .br
+.RI "Cleans up Hyper Network functions for exiting\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperSocket\fP (\fBSOCKET\fP *sock)"
+.RI "HYPERSTATUS \fBHyperSocket\fP (SOCKET *sock)"
 .br
+.RI "Creates a valid SOCKET object for use with Hyper Networking\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperConnectServer\fP (\fBSOCKET\fP *sock, const char *cpServerIP, const unsigned short usPort)"
+.RI "HYPERSTATUS \fBHyperConnectServer\fP (SOCKET *sock, const char *cpServerIP, const unsigned short usPort)"
 .br
+.RI "Connects to an open Hyper Server\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperStartServer\fP (\fBSOCKET\fP *sock, const unsigned short usPort)"
+.RI "HYPERSTATUS \fBHyperStartServer\fP (SOCKET *sock, const unsigned short usPort)"
 .br
+.RI "Starts a Hyper Server at specified port\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperServerListen\fP (const \fBSOCKET\fP sockServer, \fBSOCKET\fP *sockClient)"
+.RI "HYPERSTATUS \fBHyperServerListen\fP (const SOCKET sockServer, SOCKET *sockClient)"
 .br
+.RI "Listens for connections to the server\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperReceiveCommand\fP (const \fBSOCKET\fP sock, char *cpCommand, size_t stMaxCommandLength)"
+.RI "HYPERSTATUS \fBHyperReceiveCommand\fP (const SOCKET sock, char *cpCommand, size_t stMaxCommandLength)"
 .br
+.RI "Recieve command from connection\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperSendCommand\fP (const \fBSOCKET\fP sock, const char *cpCommand)"
+.RI "HYPERSTATUS \fBHyperSendCommand\fP (const SOCKET sock, const char *cpCommand)"
 .br
+.RI "Send command to connection\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperSendStatus\fP (const \fBSOCKET\fP sock, const unsigned short status)"
+.RI "HYPERSTATUS \fBHyperSendStatus\fP (const SOCKET sock, const unsigned short status)"
 .br
+.RI "Send Status Response to connection\&. "
 .ti -1c
-.RI "\fBHYPERSTATUS\fP \fBHyperReceiveStatus\fP (const \fBSOCKET\fP sock, unsigned short *status)"
+.RI "HYPERSTATUS \fBHyperReceiveStatus\fP (const SOCKET sock, unsigned short *status)"
 .br
+.RI "Receive Status Response from connection\&. "
 .in -1c
-.SH "Macro Definition Documentation"
+.SH "Detailed Description"
 .PP 
-.SS "#define CONNECTION_CLOSED   0"
+Contains Hyper Networking functions and definitions\&. 
+
 
 .PP
-Definition at line 4 of file hyper_network\&.h\&.
-.SS "#define INVALID_SOCKET   \-1"
-
-.PP
-Definition at line 25 of file hyper_network\&.h\&.
-.SS "#define SOCKET_ERROR   \-1"
-
-.PP
-Definition at line 26 of file hyper_network\&.h\&.
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef struct sockaddr \fBSOCKADDR\fP"
-
-.PP
-Definition at line 22 of file hyper_network\&.h\&.
-.SS "typedef struct sockaddr_in \fBSOCKADDR_IN\fP"
-
-.PP
-Definition at line 21 of file hyper_network\&.h\&.
-.SS "typedef int \fBSOCKET\fP"
-
-.PP
-Definition at line 19 of file hyper_network\&.h\&.
-.SS "typedef socklen_t \fBSOCKLEN\fP"
-
-.PP
-Definition at line 23 of file hyper_network\&.h\&.
+Definition in file \fBhyper_network\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
-.SS "\fBHYPERSTATUS\fP HyperCloseSocket (\fBSOCKET\fP sock)"
+.SS "HYPERSTATUS HyperCloseSocket (SOCKET sock)"
 
-.SS "\fBHYPERSTATUS\fP HyperConnectServer (\fBSOCKET\fP * sock, const char * cpServerIP, const unsigned short usPort)"
+.PP
+Closes a SOCKET object\&. Closes a SOCKET object\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP Socket to close
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperSocket\fP 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperNetworkInit (void)"
+.SS "HYPERSTATUS HyperConnectServer (SOCKET * sock, const char * cpServerIP, const unsigned short usPort)"
 
-.SS "\fBHYPERSTATUS\fP HyperReceiveCommand (const \fBSOCKET\fP sock, char * cpCommand, size_t stMaxCommandLength)"
+.PP
+Connects to an open Hyper Server\&. Connects to an open Hyper Server using the specified server IP and port\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP Pointer to SOCKET object to connect with 
+.br
+\fIcpServerIP\fP Char pointer containing IP address of server 
+.br
+\fIusPort\fP Unsigned port number of server
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperStartServer\fP 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperReceiveStatus (const \fBSOCKET\fP sock, unsigned short * status)"
+.SS "HYPERSTATUS HyperNetworkInit (void)"
 
-.SS "\fBHYPERSTATUS\fP HyperSendCommand (const \fBSOCKET\fP sock, const char * cpCommand)"
+.PP
+Initializes the Hyper Network functions\&. Initializes the Hyper Network functions so networking works properly\&.
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+As of right now, this is only needed for Windows applications\&. However, this could change, so it is advised to use this function anyways\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperSocketCleanup\fP 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperSendStatus (const \fBSOCKET\fP sock, const unsigned short status)"
+.SS "HYPERSTATUS HyperReceiveCommand (const SOCKET sock, char * cpCommand, size_t stMaxCommandLength)"
 
-.SS "\fBHYPERSTATUS\fP HyperServerListen (const \fBSOCKET\fP sockServer, \fBSOCKET\fP * sockClient)"
+.PP
+Recieve command from connection\&. Recieves a command sent from connected peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP SOCKET object to receive from 
+.br
+\fIcpCommand\fP Char pointer buffer to write command to 
+.br
+\fIstMaxCommandLength\fP Max buffer size for cpCommand
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperSendCommand\fP 
+.PP
+\fBHyperSendStatus\fP 
+.PP
+\fBHyperReceiveStatus\fP 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperSocket (\fBSOCKET\fP * sock)"
+.SS "HYPERSTATUS HyperReceiveStatus (const SOCKET sock, unsigned short * status)"
 
-.SS "\fBHYPERSTATUS\fP HyperSocketCleanup (void)"
+.PP
+Receive Status Response from connection\&. Receives a Status Response Code from a connected peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP SOCKET object to receive from 
+.br
+\fIstatus\fP Pointer to unsigned short to store status in
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperSendStatus\fP 
+.PP
+\fBHyperSendCommand\fP 
+.PP
+\fBHyperReceiveCommand\fP 
+.RE
+.PP
 
-.SS "\fBHYPERSTATUS\fP HyperStartServer (\fBSOCKET\fP * sock, const unsigned short usPort)"
+.SS "HYPERSTATUS HyperSendCommand (const SOCKET sock, const char * cpCommand)"
+
+.PP
+Send command to connection\&. Sends a command to connected peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP SOCKET object to send to 
+.br
+\fIcpCommand\fP Char pointer buffer storing command to send
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperReceiveCommand\fP 
+.PP
+\fBHyperSendStatus\fP 
+.PP
+\fBHyperReceiveStatus\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperSendStatus (const SOCKET sock, const unsigned short status)"
+
+.PP
+Send Status Response to connection\&. Sends a Status Response Code to connected peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP SOCKET object to send to 
+.br
+\fIstatus\fP unsigned short storing status to send
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperReceiveStatus\fP 
+.PP
+\fBHyperSendCommand\fP 
+.PP
+\fBHyperReceiveCommand\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperServerListen (const SOCKET sockServer, SOCKET * sockClient)"
+
+.PP
+Listens for connections to the server\&. Listens for incoming connections to the server\&. Blocks thread until connection is received\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsockServer\fP SOCKET object to server 
+.br
+\fIsockClient\fP Pointer to SOCKET object used to store the connected client
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperStartServer\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperSocket (SOCKET * sock)"
+
+.PP
+Creates a valid SOCKET object for use with Hyper Networking\&. Creates a valid SOCKET object for use with Hyper Networking functions\&. Must be connected using either connect() or accept()/listen()\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP Pointer to SOCKET object to write socket into
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperCloseSocket\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperSocketCleanup (void)"
+
+.PP
+Cleans up Hyper Network functions for exiting\&. Cleans up Hyper Network functions\&. Once this function is called, networking will no longer be successful, so it should only be called when finished with networking\&.
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+As of right now, this is only needed for Windows applications\&. However, this could change, so it is advised to use this function anyways\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperNetworkInit\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperStartServer (SOCKET * sock, const unsigned short usPort)"
+
+.PP
+Starts a Hyper Server at specified port\&. Starts and initializes a Hyper Server at the specified port\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsock\fP Pointer to SOCKET object to use for connections 
+.br
+\fIusPort\fP Unsigned port number to bind to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperConnectServer\fP 
+.PP
+\fBHyperServerListen\fP 
+.RE
+.PP
 
 .SH "Author"
 .PP 
