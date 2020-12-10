@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_7e2309b68f2457fb03d6400dad1ecace" kind="dir">
+    <compoundname>include/hyper</compoundname>
+    <innerfile refid="hyper__file_8h">hyper_file.h</innerfile>
+    <innerfile refid="hyper__network_8h">hyper_network.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hyper/"/>
+  </compounddef>
+</doxygen>

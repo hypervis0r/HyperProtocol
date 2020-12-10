@@ -1,0 +1,776 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="hyper__network_8h" kind="file" language="C++">
+    <compoundname>hyper_network.h</compoundname>
+    <includes local="no">sys/socket.h</includes>
+    <includes local="no">arpa/inet.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">errno.h</includes>
+    <includes refid="hyper_8h" local="no">hyper.h</includes>
+    <includes local="no">string.h</includes>
+    <includedby refid="hyper__file_8h" local="no">include/hyper/hyper_file.h</includedby>
+    <includedby refid="hyper_8h" local="no">include/hyper.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="3">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="1">
+        <label>include/hyper/hyper_network.h</label>
+        <link refid="hyper__network_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>errno.h</label>
+      </node>
+      <node id="9">
+        <label>fcntl.h</label>
+      </node>
+      <node id="10">
+        <label>string.h</label>
+      </node>
+      <node id="4">
+        <label>unistd.h</label>
+      </node>
+      <node id="6">
+        <label>hyper.h</label>
+        <link refid="hyper_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="7">
+        <label>hyper/hyper_file.h</label>
+        <link refid="hyper__file_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/hyper/hyper_network.h</label>
+        <link refid="hyper__network_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/hyper.h</label>
+        <link refid="hyper_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/hyper/hyper_file.h</label>
+        <link refid="hyper__file_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="hyper__network_8h_1aaac251a63e765d82a11f6050f3e65f3c" prot="public" static="no">
+        <name>CONNECTION_CLOSED</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="9" column="9" bodyfile="include/hyper/hyper_network.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hyper__network_8h_1a26769957ec1a2beaf223f33b66ee64ab" prot="public" static="no">
+        <name>INVALID_SOCKET</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="30" column="13" bodyfile="include/hyper/hyper_network.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hyper__network_8h_1a633b0396ff93d336a088412a190a5072" prot="public" static="no">
+        <name>SOCKET_ERROR</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="31" column="13" bodyfile="include/hyper/hyper_network.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="hyper__network_8h_1a8dc8083897335125630f1af5dafd5831" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int SOCKET</definition>
+        <argsstring></argsstring>
+        <name>SOCKET</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="24" column="17" bodyfile="include/hyper/hyper_network.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hyper__network_8h_1a29046dc0232f0e5c70adbc25090d77b8" prot="public" static="no">
+        <type>struct sockaddr_in</type>
+        <definition>typedef struct sockaddr_in SOCKADDR_IN</definition>
+        <argsstring></argsstring>
+        <name>SOCKADDR_IN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="24" column="17" bodyfile="include/hyper/hyper_network.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hyper__network_8h_1ae334b73cedf7204187dce3f817576009" prot="public" static="no">
+        <type>struct sockaddr</type>
+        <definition>typedef struct sockaddr SOCKADDR</definition>
+        <argsstring></argsstring>
+        <name>SOCKADDR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="24" column="17" bodyfile="include/hyper/hyper_network.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hyper__network_8h_1ad4f5022523e386f2e6d49b03975bd3ec" prot="public" static="no">
+        <type>socklen_t</type>
+        <definition>typedef socklen_t SOCKLEN</definition>
+        <argsstring></argsstring>
+        <name>SOCKLEN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="28" column="23" bodyfile="include/hyper/hyper_network.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hyper__network_8h_1abf65b08a813f9a5e3c78e182d8079a1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperNetworkInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>HyperNetworkInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the Hyper Network functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the Hyper Network functions so networking works properly.</para>
+<para><simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="remark"><para>As of right now, this is only needed for Windows applications. However, this could change, so it is advised to use this function anyways.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a559e9dbe1eabc14dfe56b38839344986" kindref="member">HyperSocketCleanup</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="51" column="1" declfile="include/hyper/hyper_network.h" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1ae6eac358177bae01d1bd4e79562253cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperCloseSocket</definition>
+        <argsstring>(SOCKET sock)</argsstring>
+        <name>HyperCloseSocket</name>
+        <param>
+          <type>SOCKET</type>
+          <declname>sock</declname>
+        </param>
+        <briefdescription>
+<para>Closes a SOCKET object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes a SOCKET object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Socket to close</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1accefbb2e970e7c27e8a7c0b9a9773faf" kindref="member">HyperSocket</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="65" column="1" declfile="include/hyper/hyper_network.h" declline="65" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a559e9dbe1eabc14dfe56b38839344986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperSocketCleanup</definition>
+        <argsstring>(void)</argsstring>
+        <name>HyperSocketCleanup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Cleans up Hyper Network functions for exiting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Cleans up Hyper Network functions. Once this function is called, networking will no longer be successful, so it should only be called when finished with networking.</para>
+<para><simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="remark"><para>As of right now, this is only needed for Windows applications. However, this could change, so it is advised to use this function anyways.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1abf65b08a813f9a5e3c78e182d8079a1c" kindref="member">HyperNetworkInit</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="84" column="1" declfile="include/hyper/hyper_network.h" declline="84" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1accefbb2e970e7c27e8a7c0b9a9773faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperSocket</definition>
+        <argsstring>(SOCKET *sock)</argsstring>
+        <name>HyperSocket</name>
+        <param>
+          <type>SOCKET *</type>
+          <declname>sock</declname>
+        </param>
+        <briefdescription>
+<para>Creates a valid SOCKET object for use with Hyper Networking. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a valid SOCKET object for use with Hyper Networking functions. Must be connected using either connect() or accept()/listen().</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to SOCKET object to write socket into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1ae6eac358177bae01d1bd4e79562253cd" kindref="member">HyperCloseSocket</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="99" column="1" declfile="include/hyper/hyper_network.h" declline="99" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a18ea9c95a2e33b863dd4b049f8b7a208" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperConnectServer</definition>
+        <argsstring>(SOCKET *sock, const char *cpServerIP, const unsigned short usPort)</argsstring>
+        <name>HyperConnectServer</name>
+        <param>
+          <type>SOCKET *</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>cpServerIP</declname>
+        </param>
+        <param>
+          <type>const unsigned short</type>
+          <declname>usPort</declname>
+        </param>
+        <briefdescription>
+<para>Connects to an open Hyper Server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Connects to an open Hyper Server using the specified server IP and port.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to SOCKET object to connect with </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cpServerIP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char pointer containing IP address of server </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">usPort</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unsigned port number of server</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a47b4cf8f9ac38f7c975690ef6ec84b70" kindref="member">HyperStartServer</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="117" column="1" declfile="include/hyper/hyper_network.h" declline="117" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a47b4cf8f9ac38f7c975690ef6ec84b70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperStartServer</definition>
+        <argsstring>(SOCKET *sock, const unsigned short usPort)</argsstring>
+        <name>HyperStartServer</name>
+        <param>
+          <type>SOCKET *</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>const unsigned short</type>
+          <declname>usPort</declname>
+        </param>
+        <briefdescription>
+<para>Starts a Hyper Server at specified port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts and initializes a Hyper Server at the specified port.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to SOCKET object to use for connections </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">usPort</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unsigned port number to bind to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a18ea9c95a2e33b863dd4b049f8b7a208" kindref="member">HyperConnectServer</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1ae1ae8ba52444bc6b0c31ec85278d509b" kindref="member">HyperServerListen</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="137" column="1" declfile="include/hyper/hyper_network.h" declline="137" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1ae1ae8ba52444bc6b0c31ec85278d509b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperServerListen</definition>
+        <argsstring>(const SOCKET sockServer, SOCKET *sockClient)</argsstring>
+        <name>HyperServerListen</name>
+        <param>
+          <type>const SOCKET</type>
+          <declname>sockServer</declname>
+        </param>
+        <param>
+          <type>SOCKET *</type>
+          <declname>sockClient</declname>
+        </param>
+        <briefdescription>
+<para>Listens for connections to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Listens for incoming connections to the server. Blocks thread until connection is received.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sockServer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SOCKET object to server </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">sockClient</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to SOCKET object used to store the connected client</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a47b4cf8f9ac38f7c975690ef6ec84b70" kindref="member">HyperStartServer</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="156" column="1" declfile="include/hyper/hyper_network.h" declline="156" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1abdc803da72260f6af8e5c2ac927d32a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperReceiveCommand</definition>
+        <argsstring>(const SOCKET sock, char *cpCommand, size_t stMaxCommandLength)</argsstring>
+        <name>HyperReceiveCommand</name>
+        <param>
+          <type>const SOCKET</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>cpCommand</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stMaxCommandLength</declname>
+        </param>
+        <briefdescription>
+<para>Recieve command from connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Recieves a command sent from connected peer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SOCKET object to receive from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">cpCommand</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char pointer buffer to write command to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stMaxCommandLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max buffer size for cpCommand</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a6ea5fc503ac0d4f7fd45478d1339c03c" kindref="member">HyperSendCommand</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a445680b24d313736cf11866fe0511902" kindref="member">HyperSendStatus</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a3ac7adabbf4252bea2be590b2e82d23c" kindref="member">HyperReceiveStatus</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="177" column="1" declfile="include/hyper/hyper_network.h" declline="177" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a6ea5fc503ac0d4f7fd45478d1339c03c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperSendCommand</definition>
+        <argsstring>(const SOCKET sock, const char *cpCommand)</argsstring>
+        <name>HyperSendCommand</name>
+        <param>
+          <type>const SOCKET</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>cpCommand</declname>
+        </param>
+        <briefdescription>
+<para>Send command to connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a command to connected peer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SOCKET object to send to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cpCommand</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char pointer buffer storing command to send</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1abdc803da72260f6af8e5c2ac927d32a7" kindref="member">HyperReceiveCommand</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a445680b24d313736cf11866fe0511902" kindref="member">HyperSendStatus</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a3ac7adabbf4252bea2be590b2e82d23c" kindref="member">HyperReceiveStatus</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="198" column="1" declfile="include/hyper/hyper_network.h" declline="198" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a445680b24d313736cf11866fe0511902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperSendStatus</definition>
+        <argsstring>(const SOCKET sock, const unsigned short status)</argsstring>
+        <name>HyperSendStatus</name>
+        <param>
+          <type>const SOCKET</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>const unsigned short</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Send Status Response to connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a Status Response Code to connected peer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SOCKET object to send to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>unsigned short storing status to send</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a3ac7adabbf4252bea2be590b2e82d23c" kindref="member">HyperReceiveStatus</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a6ea5fc503ac0d4f7fd45478d1339c03c" kindref="member">HyperSendCommand</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1abdc803da72260f6af8e5c2ac927d32a7" kindref="member">HyperReceiveCommand</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="218" column="1" declfile="include/hyper/hyper_network.h" declline="218" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hyper__network_8h_1a3ac7adabbf4252bea2be590b2e82d23c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HYPERSTATUS</type>
+        <definition>HYPERSTATUS HyperReceiveStatus</definition>
+        <argsstring>(const SOCKET sock, unsigned short *status)</argsstring>
+        <name>HyperReceiveStatus</name>
+        <param>
+          <type>const SOCKET</type>
+          <declname>sock</declname>
+        </param>
+        <param>
+          <type>unsigned short *</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Receive Status Response from connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Receives a Status Response Code from a connected peer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SOCKET object to receive from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to unsigned short to store status in</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns HYPER_SUCCESS if successful, else returns HYPER_FAILED</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a445680b24d313736cf11866fe0511902" kindref="member">HyperSendStatus</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1a6ea5fc503ac0d4f7fd45478d1339c03c" kindref="member">HyperSendCommand</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="hyper__network_8h_1abdc803da72260f6af8e5c2ac927d32a7" kindref="member">HyperReceiveCommand</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hyper/hyper_network.h" line="238" column="1" declfile="include/hyper/hyper_network.h" declline="238" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains Hyper Networking functions and definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="6"><highlight class="preprocessor">#ifndef<sp/>_NETWORK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_NETWORK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONNECTION_CLOSED<sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>_WINSOCK_DEPRECATED_NO_WARNINGS<sp/>//<sp/>Make<sp/>WinSock<sp/>STFU</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>comment<sp/>(lib,<sp/>&quot;Ws2_32.lib&quot;)<sp/>//<sp/>Link<sp/>to<sp/>WinSock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SOCKLEN;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;sys/socket.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;arpa/inet.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>WinSock2<sp/>uses<sp/>unsigned<sp/>int<sp/>for<sp/>sockets,<sp/>while<sp/>POSIX<sp/>uses<sp/>int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SOCKET;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_in<sp/>SOCKADDR_IN;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr<sp/>SOCKADDR;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>socklen_t<sp/>SOCKLEN;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>INVALID_SOCKET<sp/><sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>SOCKET_ERROR<sp/><sp/><sp/><sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="hyper_8h" kindref="compound">hyper.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="hyper__network_8h_1abf65b08a813f9a5e3c78e182d8079a1c" kindref="member">HyperNetworkInit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><ref refid="hyper__network_8h_1ae6eac358177bae01d1bd4e79562253cd" kindref="member">HyperCloseSocket</ref>(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sock</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">HYPERSTATUS<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><ref refid="hyper__network_8h_1a559e9dbe1eabc14dfe56b38839344986" kindref="member">HyperSocketCleanup</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><ref refid="hyper__network_8h_1accefbb2e970e7c27e8a7c0b9a9773faf" kindref="member">HyperSocket</ref>(</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*sock</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><ref refid="hyper__network_8h_1a18ea9c95a2e33b863dd4b049f8b7a208" kindref="member">HyperConnectServer</ref>(</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*sock,<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cpServerIP,<sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>usPort</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="hyper__network_8h_1a47b4cf8f9ac38f7c975690ef6ec84b70" kindref="member">HyperStartServer</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*sock,<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>usPort</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><ref refid="hyper__network_8h_1ae1ae8ba52444bc6b0c31ec85278d509b" kindref="member">HyperServerListen</ref>(</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sockServer,<sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*sockClient</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><ref refid="hyper__network_8h_1abdc803da72260f6af8e5c2ac927d32a7" kindref="member">HyperReceiveCommand</ref>(</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sock,<sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cpCommand,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stMaxCommandLength</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><ref refid="hyper__network_8h_1a6ea5fc503ac0d4f7fd45478d1339c03c" kindref="member">HyperSendCommand</ref>(</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sock,<sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cpCommand</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><ref refid="hyper__network_8h_1a445680b24d313736cf11866fe0511902" kindref="member">HyperSendStatus</ref>(</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sock,</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>status</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">HYPERSTATUS</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><ref refid="hyper__network_8h_1a3ac7adabbf4252bea2be590b2e82d23c" kindref="member">HyperReceiveStatus</ref>(</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SOCKET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sock,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*status</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/hyper/hyper_network.h"/>
+  </compounddef>
+</doxygen>
