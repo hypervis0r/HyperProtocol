@@ -1,0 +1,146 @@
+.TH "include/hyper/hyper_file.h" 3 "Wed Dec 9 2020" "HyperProtocol" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/hyper/hyper_file.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <sys/stat\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <hyper\&.h>\fP
+.br
+\fC#include <hyper/hyper_network\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBREADALL_CHUNK\fP   262144"
+.br
+.ti -1c
+.RI "#define \fBREADALL_OK\fP   0  /* Success */"
+.br
+.ti -1c
+.RI "#define \fBREADALL_INVALID\fP   \-1  /* Invalid parameters */"
+.br
+.ti -1c
+.RI "#define \fBREADALL_ERROR\fP   \-2  /* Stream error */"
+.br
+.ti -1c
+.RI "#define \fBREADALL_TOOMUCH\fP   \-3  /* Too much input */"
+.br
+.ti -1c
+.RI "#define \fBREADALL_NOMEM\fP   \-4  /* Out of memory */"
+.br
+.ti -1c
+.RI "#define \fBSEND_BLOCK_SIZE\fP   4096"
+.br
+.ti -1c
+.RI "#define \fBRECV_BLOCK_SIZE\fP   4096"
+.br
+.ti -1c
+.RI "#define \fBFILESIZE_BUFFER_SIZE\fP   1024"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void * \fBHYPERFILE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperReadFileC\fP (FILE *in, \fBHYPERFILE\fP *dataptr, size_t *sizeptr)"
+.br
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperReadFile\fP (const char *cpFilePath, \fBHYPERFILE\fP *lpBuffer, size_t *lpFileSize)"
+.br
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperWriteFileC\fP (FILE *pFile, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.br
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperWriteFile\fP (const char *cpFilePath, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+.br
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperReceiveFile\fP (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP *lpBuffer, unsigned long *ulSize)"
+.br
+.ti -1c
+.RI "\fBHYPERSTATUS\fP \fBHyperSendFile\fP (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP *lpBuffer, const unsigned long ulSize)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FILESIZE_BUFFER_SIZE   1024"
+
+.PP
+Definition at line 19 of file hyper_file\&.h\&.
+.SS "#define READALL_CHUNK   262144"
+
+.PP
+Definition at line 7 of file hyper_file\&.h\&.
+.SS "#define READALL_ERROR   \-2  /* Stream error */"
+
+.PP
+Definition at line 11 of file hyper_file\&.h\&.
+.SS "#define READALL_INVALID   \-1  /* Invalid parameters */"
+
+.PP
+Definition at line 10 of file hyper_file\&.h\&.
+.SS "#define READALL_NOMEM   \-4  /* Out of memory */"
+
+.PP
+Definition at line 13 of file hyper_file\&.h\&.
+.SS "#define READALL_OK   0  /* Success */"
+
+.PP
+Definition at line 9 of file hyper_file\&.h\&.
+.SS "#define READALL_TOOMUCH   \-3  /* Too much input */"
+
+.PP
+Definition at line 12 of file hyper_file\&.h\&.
+.SS "#define RECV_BLOCK_SIZE   4096"
+
+.PP
+Definition at line 17 of file hyper_file\&.h\&.
+.SS "#define SEND_BLOCK_SIZE   4096"
+
+.PP
+Definition at line 16 of file hyper_file\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void* \fBHYPERFILE\fP"
+
+.PP
+Definition at line 22 of file hyper_file\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBHYPERSTATUS\fP HyperReadFile (const char * cpFilePath, \fBHYPERFILE\fP * lpBuffer, size_t * lpFileSize)"
+
+.SS "\fBHYPERSTATUS\fP HyperReadFileC (FILE * in, \fBHYPERFILE\fP * dataptr, size_t * sizeptr)"
+
+.SS "\fBHYPERSTATUS\fP HyperReceiveFile (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP * lpBuffer, unsigned long * ulSize)"
+
+.SS "\fBHYPERSTATUS\fP HyperSendFile (const \fBSOCKET\fP sockServer, \fBHYPERFILE\fP * lpBuffer, const unsigned long ulSize)"
+
+.SS "\fBHYPERSTATUS\fP HyperWriteFile (const char * cpFilePath, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+
+.SS "\fBHYPERSTATUS\fP HyperWriteFileC (FILE * pFile, const \fBHYPERFILE\fP hfBuffer, const size_t stFileSize)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for HyperProtocol from the source code\&.

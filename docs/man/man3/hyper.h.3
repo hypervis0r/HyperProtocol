@@ -1,0 +1,148 @@
+.TH "include/hyper.h" 3 "Wed Dec 9 2020" "HyperProtocol" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/hyper.h \- Common functions and variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <hyper/hyper_network\&.h>\fP
+.br
+\fC#include <hyper/hyper_file\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_COMMAND_LENGTH\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBHYPER_SUCCESS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHYPER_FAILED\fP   \-1"
+.br
+.ti -1c
+.RI "#define \fBHYPER_BAD_PARAMETER\fP   \-2"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int \fBHYPERSTATUS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "HYPERSTATUS \fBHyperMemAlloc\fP (void **src, size_t size)"
+.br
+.RI "Allocate memory in a platform-agnostic way\&. "
+.ti -1c
+.RI "HYPERSTATUS \fBHyperMemFree\fP (void *src)"
+.br
+.RI "Free memory in a platform-agnostic way\&. "
+.ti -1c
+.RI "HYPERSTATUS \fBHyperMemRealloc\fP (void **src, size_t size)"
+.br
+.RI "Reallocate memory in a platform-agnostic way\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common functions and variables\&. 
+
+
+.PP
+Definition in file \fBhyper\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "HYPERSTATUS HyperMemAlloc (void ** src, size_t size)"
+
+.PP
+Allocate memory in a platform-agnostic way\&. Allocate memory in a platform-agnostic way\&. We use HeapAlloc for Windows, and malloc for POSIX\&. We do this instead of malloc for Windows, as it reduces overhead\&.
+.PP
+\fBWarning\fP
+.RS 4
+Objects allocated with HyperMemAlloc must be freed with HyperMemFree
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP The memory area to allocate 
+.br
+\fIsize\fP The amount of bytes to allocate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS on success\&. If memory allocation fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperMemFree\fP 
+.PP
+\fBHyperMemRealloc\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperMemFree (void * src)"
+
+.PP
+Free memory in a platform-agnostic way\&. Free memory in a platform-agnostic way\&. We use HeapFree for Windows, and free for POSIX\&. We do this instead of free for Windows, as calling free on a HeapAlloc-allocated function causes heap corruption\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP The memory area to free
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS on success\&. If freeing memory fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperMemAlloc\fP 
+.PP
+\fBHyperMemRealloc\fP 
+.RE
+.PP
+
+.SS "HYPERSTATUS HyperMemRealloc (void ** src, size_t size)"
+
+.PP
+Reallocate memory in a platform-agnostic way\&. Reallocate memory in a platform-agnostic way\&. We use HeapReAlloc for Windows, and realloc for POSIX\&. We do this instead of realloc for Windows, as it reduces overhead\&.
+.PP
+\fBWarning\fP
+.RS 4
+Objects reallocated with HyperMemRealloc must be freed with HyperMemFree
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP The memory area to reallocate 
+.br
+\fIsize\fP The size to reallocate memory to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns HYPER_SUCCESS on success\&. If reallocating memory fails, returns HYPER_FAILED\&.
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBHyperMemAlloc\fP 
+.PP
+\fBHyperMemFree\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for HyperProtocol from the source code\&.
