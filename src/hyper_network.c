@@ -59,7 +59,9 @@ HyperConnectServer(
     const char          *cpServerIP, 
     const unsigned short usPort)
 {
-    SOCKADDR_IN sin = {0};
+    struct addrinfo hints = { 0 }; 
+    struct addrinfo *res = { 0 };
+    int status = 0;
     SOCKET temp = 0;
     HYPERSTATUS iResult = 0;
 
@@ -68,13 +70,18 @@ HyperConnectServer(
     if (iResult == INVALID_SOCKET)
         return INVALID_SOCKET;
 
-    // Set IP and Port to connect to
-    sin.sin_family = AF_INET;
-	sin.sin_addr.s_addr = inet_addr(cpServerIP);
-	sin.sin_port = htons(usPort);
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+
+    char portStr[1024];
+    snprintf(portStr, 1024, "%hu", usPort);
+
+    if ((status = getaddrinfo(cpServerIP, portStr, &hints, &res)) != 0)
+        return HYPER_FAILED;
 
     // Connect to server
-    iResult = connect(temp, (SOCKADDR*)&sin, sizeof(sin));
+    iResult = connect(temp, res->ai_addr, res->ai_addrlen);
     if (iResult == SOCKET_ERROR)
     {
         HyperCloseSocket(temp);

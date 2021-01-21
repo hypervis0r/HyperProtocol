@@ -96,6 +96,23 @@ HyperReceiveFile(
 	recv(sockServer, cpSizeBuf, sizeof(cpSizeBuf), 0);
 	ulFileSize = strtoull(cpSizeBuf, 0, 10);
 
+    // If data is less than a block size long, lets not bloat the size lol
+    if (ulFileSize < RECV_BLOCK_SIZE)
+    {
+        char *sblock = NULL;
+        
+        HyperMemAlloc((void**)&sblock, ulFileSize);
+        HyperMemAlloc(&data, ulFileSize);
+        
+        recv(sockServer, sblock, ulFileSize, 0);
+        memcpy(data, sblock, ulFileSize);
+        
+        HyperMemFree(sblock);
+        *lpBuffer = data;
+        *ulSize = ulFileSize;
+        return HYPER_SUCCESS;
+    }
+
     // Allocate data buffer
     iResult = HyperMemAlloc(&data, ulFileSize + RECV_BLOCK_SIZE);
     if (iResult == HYPER_FAILED)
@@ -335,20 +352,27 @@ HyperSendFile(
     ulBytesSent = send(sockServer, fileSizeBuffer, FILESIZE_BUFFER_SIZE, 0);
     if ((int)ulBytesSent == SOCKET_ERROR)
         return SOCKET_ERROR;
-   
+  
+    // If data is less than a block size long, lets not bloat the size lol
+    if (ulSize < SEND_BLOCK_SIZE)
+    {
+        send(sockServer, (char*)(*lpBuffer), ulSize, 0);
+        return HYPER_SUCCESS;
+    }
+
     // Begin Sending file
     while(ulSentSize < ulSize)
     {
         // Copy data from buffer into block
-        memcpy(block, (void*)((char*)(*lpBuffer)+ulSentSize), SEND_BLOCK_SIZE);
+        /* memcpy(block, (void*)((char*)(*lpBuffer)+ulSentSize), SEND_BLOCK_SIZE); */
         
-        ulBytesSent = send(sockServer, block, SEND_BLOCK_SIZE, 0);
+        ulBytesSent = send(sockServer, (char*)(*lpBuffer)+ulSentSize, SEND_BLOCK_SIZE, 0);
         if ((int)ulBytesSent == SOCKET_ERROR)
             return SOCKET_ERROR;
         else
         {
             ulSentSize += ulBytesSent;
-            memset(block, 0, SEND_BLOCK_SIZE);
+            /* memset(block, 0, SEND_BLOCK_SIZE); */
         }
     }
     
