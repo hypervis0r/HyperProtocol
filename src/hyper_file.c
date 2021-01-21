@@ -88,9 +88,7 @@ HyperReceiveFile(
     void *data = NULL;
 
     char cpSizeBuf[1024];
-	char block[RECV_BLOCK_SIZE];
     memset(cpSizeBuf, 0, sizeof(cpSizeBuf));
-    memset(block, 0, RECV_BLOCK_SIZE);
 
 	// Recieve file size from server
 	recv(sockServer, cpSizeBuf, sizeof(cpSizeBuf), 0);
@@ -99,15 +97,10 @@ HyperReceiveFile(
     // If data is less than a block size long, lets not bloat the size lol
     if (ulFileSize < RECV_BLOCK_SIZE)
     {
-        char *sblock = NULL;
-        
-        HyperMemAlloc((void**)&sblock, ulFileSize);
         HyperMemAlloc(&data, ulFileSize);
         
-        recv(sockServer, sblock, ulFileSize, 0);
-        memcpy(data, sblock, ulFileSize);
+        recv(sockServer, (char*)data, ulFileSize, 0);
         
-        HyperMemFree(sblock);
         *lpBuffer = data;
         *ulSize = ulFileSize;
         return HYPER_SUCCESS;
@@ -121,20 +114,13 @@ HyperReceiveFile(
 	// Recieve binary data from server, and write to buffer.
 	while (ulWrittenSize < ulFileSize)
 	{
-        ulBytesWritten = recv(sockServer, block, RECV_BLOCK_SIZE, 0);
+        ulBytesWritten = recv(sockServer, (char*)(data) + ulWrittenSize, RECV_BLOCK_SIZE, 0);
 
 		// If we have recieved final bit of data, finish writing and break.
 		if (ulWrittenSize > ulFileSize)
-		{
-			memcpy((void*)((char*)(data) + ulWrittenSize), block, ulBytesWritten);
             break;
-		}
 		else
-		{
-			memcpy((void*)((char*)(data) + ulWrittenSize), block, ulBytesWritten);
 		    ulWrittenSize += ulBytesWritten;
-			memset(block, 0, RECV_BLOCK_SIZE);
-		}
 	}
 
     // Set input buffer to recieved data.
@@ -337,9 +323,7 @@ HyperSendFile(
     unsigned long ulSentSize = 0;
     unsigned long ulBytesSent = 0;
     
-    char block[SEND_BLOCK_SIZE];
     char fileSizeBuffer[FILESIZE_BUFFER_SIZE];
-    memset(block, 0, SEND_BLOCK_SIZE);
     memset(fileSizeBuffer, 0, FILESIZE_BUFFER_SIZE);
 
     // Add extra block due to memcpy scaring me
@@ -364,16 +348,12 @@ HyperSendFile(
     while(ulSentSize < ulSize)
     {
         // Copy data from buffer into block
-        /* memcpy(block, (void*)((char*)(*lpBuffer)+ulSentSize), SEND_BLOCK_SIZE); */
-        
         ulBytesSent = send(sockServer, (char*)(*lpBuffer)+ulSentSize, SEND_BLOCK_SIZE, 0);
+        
         if ((int)ulBytesSent == SOCKET_ERROR)
             return SOCKET_ERROR;
         else
-        {
             ulSentSize += ulBytesSent;
-            /* memset(block, 0, SEND_BLOCK_SIZE); */
-        }
     }
     
     return HYPER_SUCCESS;
