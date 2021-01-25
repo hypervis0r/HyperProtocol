@@ -701,9 +701,8 @@ HyperReceiveFile(
     // Set input buffer to recieved data.
     *lpBuffer = data;
     
-    // Set ullSize to ullFileSize plus the extra bit of data we add to the end.
-	// We add the extra data because I suck at writing good code.
-	*ulSize = ulFileSize + RECV_BLOCK_SIZE;
+    // Set ulSize to ulFileSize.
+	*ulSize = ulFileSize;
 
     return 0;
 }
