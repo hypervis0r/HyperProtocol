@@ -43,11 +43,13 @@ typedef int     HYPERSTATUS;
     
     typedef int SOCKLEN;
 #else
+    #include <sys/types.h>
     #include <sys/stat.h>
     #include <fcntl.h>
     #include <unistd.h>
     #include <sys/socket.h>
     #include <arpa/inet.h>
+    #include <netdb.h>
     #include <errno.h>
 
     // WinSock2 uses unsigned int for sockets, while POSIX uses int
