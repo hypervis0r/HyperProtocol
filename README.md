@@ -5,7 +5,6 @@ The Hyper Protocol is a library for C that allows for sending and receiving file
 ## Installation
 
 Define `HYPER_IMPLEMENTATION` and simply include the header into your project!
-NOTE: Only define `HYPER_IMPLEMENTATION` in one file, or you'll get nasty linking errors!
 
 ## Usage
 
