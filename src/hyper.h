@@ -71,6 +71,7 @@ typedef int     HYPERSTATUS;
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 /*! 
  * \brief Allocate memory in a platform-agnostic way
@@ -682,6 +683,10 @@ HyperReceiveFile(
         *ulSize = ulFileSize;
         return HYPER_SUCCESS;
     }
+
+    // Prevent integer overflow leading to heap overflow, thx zenpai *_*
+    if (ulFileSize >= ULONG_MAX-RECV_BLOCK_SIZE)
+        return HYPER_FAILED;
 
     // Allocate data buffer
     iResult = HyperMemAlloc(&data, ulFileSize + RECV_BLOCK_SIZE);
