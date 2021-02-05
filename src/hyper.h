@@ -950,7 +950,7 @@ HyperNetworkInit(void)
 {
     HYPERSTATUS iResult = 0;
 #ifdef _WIN32
-    WSADATA wsaData = {};
+    WSADATA wsaData = { 0 };
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
     return iResult;
