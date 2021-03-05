@@ -1156,13 +1156,12 @@ HyperSendStatus(
     const unsigned short status)
 {
     HYPERSTATUS hsResult = 0;
-    char buffer[255];
-    memset(buffer, 0, sizeof(buffer));
+    char buffer[sizeof(unsigned short)] = { 0 };
 
     if (!sock)
         return HYPER_BAD_PARAMETER;
-
-    snprintf(buffer, sizeof(buffer), "%u", status);
+    
+    memcpy(buffer, &status, sizeof(unsigned short));
     
     hsResult = send(sock, buffer, sizeof(buffer), 0);
     if (hsResult == SOCKET_ERROR || hsResult == CONNECTION_CLOSED)
@@ -1179,8 +1178,7 @@ HyperReceiveStatus(
 {
     HYPERSTATUS hsResult = 0;
     unsigned short temp = 0;
-    char buffer[255];
-    memset(buffer, 0, sizeof(buffer));
+    char buffer[sizeof(unsigned short)] = { 0 };
 
     if (!sock || !status)
         return HYPER_BAD_PARAMETER;
@@ -1189,7 +1187,7 @@ HyperReceiveStatus(
     if (hsResult == SOCKET_ERROR || hsResult == CONNECTION_CLOSED)
         return HYPER_FAILED;
 
-    temp = (unsigned short)strtoul(buffer, NULL, 10);
+    memcpy(temp, buffer, sizeof(unsigned short));
 
     *status = temp;
 
