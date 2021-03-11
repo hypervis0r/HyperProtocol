@@ -739,7 +739,7 @@ HyperReadFile(
             FILE_ATTRIBUTE_READONLY,    /* dwFlagsAndAttributes */
             0               /* hTemplateFile */
     );
-    if (hFile == NULL)
+    if (hFile == INVALID_HANDLE_VALUE)
         return HYPER_FAILED;
 
     /* Get file size */
